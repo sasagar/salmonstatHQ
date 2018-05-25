@@ -1,0 +1,59 @@
+.App {
+	min-height: 100%;
+	text-align: center;
+}
+
+.App-logo {
+	height: 80px;
+}
+
+.App-header {
+	height: 150px;
+	padding: 20px;
+}
+
+header h3 {
+	position: relative;
+	font-family: Splatoon1, sans-serif;
+	color: #ff5033;
+	font-size: 22px;
+	z-index: 1;
+	margin: 0;
+}
+
+header h3::before,
+header h3 span,
+header h3::after {
+	display: inline-block;
+	background: url('./images/titlebg.png') no-repeat;
+	background-size: 488px 52px;
+	height: 52px;
+	vertical-align: middle;
+}
+
+header h3::before {
+	background-position: 0;
+	content: '';
+	width: 42px;
+}
+
+header h3 span {
+	min-width: 200px;
+	background-position: 50%;
+	padding-top: 14px;
+	box-sizing: border-box;
+}
+
+header h3::after {
+	background-position: 100%;
+	content: '';
+	width: 42px;
+}
+
+.App-title {
+	font-size: 1.5em;
+}
+
+.App-intro {
+	font-size: large;
+}

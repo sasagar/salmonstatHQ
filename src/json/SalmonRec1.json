@@ -1,0 +1,491 @@
+[
+	{
+		"id": 1,
+		"red": 247,
+		"helped": -1,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 1076,
+		"rescue": -1,
+		"sumGold": 32,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": -1,
+				"norma": -1,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 0,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 5030
+			},
+			{
+				"result": -1,
+				"norma": -1,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 3,
+				"success": false,
+				"tide": 1,
+				"event": 1,
+				"weaponId": 2060
+			}
+		],
+		"gold": 14,
+		"spId": 2,
+		"stageId": 0
+	},
+	{
+		"id": 2,
+		"red": 264,
+		"helped": 1,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 1085,
+		"rescue": 0,
+		"sumGold": 25,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": -1,
+				"norma": -1,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 1,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 5020
+			},
+			{
+				"result": -1,
+				"norma": -1,
+				"spCount": 0,
+				"randomId": -1,
+				"death": true,
+				"weaponTag": 0,
+				"success": false,
+				"tide": 0,
+				"event": 0,
+				"weaponId": 5030
+			}
+		],
+		"gold": 6,
+		"spId": 2,
+		"stageId": 0
+	},
+	{
+		"id": 3,
+		"red": 110,
+		"helped": 2,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": -1,
+		"rescue": 2,
+		"sumGold": 12,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 12,
+				"norma": 13,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 1,
+				"success": false,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 5020
+			}
+		],
+		"gold": 4,
+		"spId": 0,
+		"stageId": 0
+	},
+	{
+		"id": 4,
+		"red": 563,
+		"helped": 2,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 2346,
+		"rescue": 1,
+		"sumGold": 71,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 20,
+				"norma": 14,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 0,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 5030
+			},
+			{
+				"result": 26,
+				"norma": 15,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 1,
+				"success": true,
+				"tide": 2,
+				"event": 0,
+				"weaponId": 5020
+			},
+			{
+				"result": 25,
+				"norma": 17,
+				"spCount": 1,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 2,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 4010
+			}
+		],
+		"gold": 18,
+		"spId": 0,
+		"stageId": 0
+	},
+	{
+		"id": 5,
+		"red": 260,
+		"helped": 1,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 1077,
+		"rescue": 0,
+		"sumGold": 35,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 22,
+				"norma": 14,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 2,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 4010
+			},
+			{
+				"result": 13,
+				"norma": 15,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 0,
+				"success": false,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 5030
+			}
+		],
+		"gold": 12,
+		"spId": 1,
+		"stageId": 0
+	},
+	{
+		"id": 6,
+		"red": 559,
+		"helped": -1,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 2180,
+		"rescue": -1,
+		"sumGold": 56,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 20,
+				"norma": 14,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 3,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 2060
+			},
+			{
+				"result": 20,
+				"norma": 15,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 0,
+				"success": true,
+				"tide": 0,
+				"event": 0,
+				"weaponId": 5030
+			},
+			{
+				"result": 16,
+				"norma": 17,
+				"spCount": 1,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 2,
+				"success": false,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 4010
+			}
+		],
+		"gold": 17,
+		"spId": 0,
+		"stageId": 0
+	},
+	{
+		"id": 7,
+		"red": 824,
+		"helped": 4,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 2722,
+		"rescue": 5,
+		"sumGold": 79,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 25,
+				"norma": 15,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 2,
+				"success": true,
+				"tide": 0,
+				"event": 0,
+				"weaponId": 4010
+			},
+			{
+				"result": 22,
+				"norma": 16,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 1,
+				"success": true,
+				"tide": 2,
+				"event": 0,
+				"weaponId": 5020
+			},
+			{
+				"result": 32,
+				"norma": 18,
+				"spCount": 2,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 3,
+				"success": true,
+				"tide": 0,
+				"event": 0,
+				"weaponId": 2060
+			}
+		],
+		"gold": 22,
+		"spId": 1,
+		"stageId": 0
+	},
+	{
+		"id": 8,
+		"red": 290,
+		"helped": 4,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 1801,
+		"rescue": 1,
+		"sumGold": 63,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 21,
+				"norma": 14,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 2,
+				"success": true,
+				"tide": 1,
+				"event": 2,
+				"weaponId": 4010
+			},
+			{
+				"result": 23,
+				"norma": 15,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 3,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 2060
+			},
+			{
+				"result": 19,
+				"norma": 17,
+				"spCount": 1,
+				"randomId": -1,
+				"death": true,
+				"weaponTag": 0,
+				"success": false,
+				"tide": 2,
+				"event": 0,
+				"weaponId": 5030
+			}
+		],
+		"gold": 12,
+		"spId": 1,
+		"stageId": 0
+	},
+	{
+		"id": 9,
+		"red": 382,
+		"helped": 6,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 2178,
+		"rescue": 3,
+		"sumGold": 71,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 23,
+				"norma": 16,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 0,
+				"success": true,
+				"tide": 0,
+				"event": 0,
+				"weaponId": 5030
+			},
+			{
+				"result": 23,
+				"norma": 18,
+				"spCount": 2,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 3,
+				"success": true,
+				"tide": 1,
+				"event": 1,
+				"weaponId": 2060
+			},
+			{
+				"result": 25,
+				"norma": 20,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 2,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 4010
+			}
+		],
+		"gold": 20,
+		"spId": 0,
+		"stageId": 0
+	},
+	{
+		"id": 10,
+		"red": 423,
+		"helped": 5,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 1508,
+		"rescue": 5,
+		"sumGold": 47,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 18,
+				"norma": 13,
+				"spCount": 1,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 2,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 4010
+			},
+			{
+				"result": 24,
+				"norma": 14,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 3,
+				"success": true,
+				"tide": 2,
+				"event": 0,
+				"weaponId": 2060
+			},
+			{
+				"result": 5,
+				"norma": 16,
+				"spCount": 0,
+				"randomId": -1,
+				"death": true,
+				"weaponTag": 0,
+				"success": false,
+				"tide": 0,
+				"event": 0,
+				"weaponId": 5030
+			}
+		],
+		"gold": 14,
+		"spId": 2,
+		"stageId": 0
+	},
+	{
+		"id": 11,
+		"red": 392,
+		"helped": 2,
+		"period": "2018-05-21T09:00:00",
+		"sumRed": 1402,
+		"rescue": 1,
+		"sumGold": 43,
+		"tag": 3,
+		"waveList": [
+			{
+				"result": 21,
+				"norma": 14,
+				"spCount": 0,
+				"randomId": -1,
+				"death": false,
+				"weaponTag": 1,
+				"success": true,
+				"tide": 1,
+				"event": 0,
+				"weaponId": 5020
+			},
+			{
+				"result": 22,
+				"norma": 15,
+				"spCount": 0,
+				"randomId": -1,
+				"death": true,
+				"weaponTag": 0,
+				"success": false,
+				"tide": 0,
+				"event": 0,
+				"weaponId": 5030
+			}
+		],
+		"gold": 14,
+		"spId": 1,
+		"stageId": 0
+	}
+]

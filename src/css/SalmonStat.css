@@ -1,0 +1,242 @@
+.SalmonStat {
+	position: relative;
+	background: rgba(0, 0, 0, 0.33);
+	padding-top: 16px;
+	padding-bottom: 90px;
+	color: #fff;
+}
+
+.SalmonStat::before {
+	background: rgba(0, 0, 0, 0.33);
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	margin-top: -36px;
+	left: 0;
+	-webkit-mask-image: url(../images/mask.png);
+	mask-image: url(../images/mask.png);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+}
+
+.Stat {
+	background: rgba(0, 0, 0, 0.8) url(../images/border.png) top;
+	background-size: 80px 80px;
+	border-radius: 20px;
+	padding: 0px;
+	margin-bottom: 24px;
+	color: #fff;
+	font-family: Splatoon2, sans-serif;
+	box-shadow: 1px 1px 0 #000;
+	width: 980px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.Stat .Heading {
+	color: #fff;
+	font-size: 17px;
+	border-bottom: 3px dashed #666;
+	padding: 10px 12px 3px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.Stat .Heading::before {
+	position: relative;
+	display: inline-block;
+	content: '';
+	background: url(../images/salmon.png) 50% no-repeat;
+	width: 31.5px;
+	height: 21px;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 10px;
+	top: -2px;
+}
+
+.Stat .Heading span {
+	flex: 1;
+}
+
+.Stat .Heading .Time {
+	text-align: left;
+}
+
+.Stat .Heading .statId {
+	text-align: right;
+}
+
+.Stat .Detail {
+	display: flex;
+	padding: 20px;
+}
+
+.Stat .Detail .StageInfo {
+	width: 300px;
+}
+
+.Stat .Detail .StageInfo .StageResult {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 5;
+}
+
+.Stat .Detail .StageInfo .StageResult .StageResultBG {
+	width: 300px;
+	height: 300px;
+	background-color: rgba(255, 180, 0, 0.9);
+	-webkit-mask-image: url(../images/splat1.svg);
+	mask-image: url(../images/splat1.svg);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	z-index: 5;
+	position: absolute;
+}
+
+.Stat .Detail .StageInfo .StageResult .StageReaultWord {
+	font-size: 60px;
+	width: 200px;
+	z-index: 6;
+	line-height: 1.2;
+	transform: rotate(-15deg);
+	filter: drop-shadow(2px 2px rgba(0, 0, 0, 1));
+	color: rgba(29, 184, 81, 1);
+}
+
+.Stat .Detail .StageInfo .Container {
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+	line-height: 0;
+}
+
+.Stat .Detail .StageInfo .Container img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.Stat .Detail .StageInfo .Container .StageName {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.75);
+	line-height: 1;
+	padding: 10px 20px;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+.Stat .Detail .StatDetail {
+	margin-left: 20px;
+	flex: 1;
+}
+
+.Stat .Detail .StatDetail .StatSum {
+	width: 100%;
+}
+
+.Stat .Detail .StatDetail .StatSum .TeamSum,
+.Stat .Detail .StatDetail .StatSum .PlayerSum {
+	background-color: rgba(255, 255, 0, 1);
+	border-radius: 10px;
+	color: rgba(0, 0, 0, 1);
+}
+
+.Stat .Detail .StatDetail .StatSum .PlayerSum {
+	margin-top: 20px;
+}
+
+.Stat .Detail .StatDetail .StatSum div h3 {
+	text-align: left;
+	font-size: 30px;
+	padding: 20px 20px 10px;
+	margin-bottom: 20px;
+	border-bottom: 3px dashed #666;
+}
+
+.Data {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px 20px;
+}
+
+.Stat .Detail .StatDetail .StatSum .PlayerSum .Data {
+	flex-wrap: wrap;
+}
+
+.Data div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.85);
+	border-radius: 40px;
+	font-size: 20px;
+	padding: 10px 20px;
+	color: rgba(255, 255, 255, 1);
+	box-sizing: border-box;
+}
+
+.Stat .Detail .StatDetail .StatSum .StageSum .Data div {
+	flex: 1;
+}
+
+.Stat .Detail .StatDetail .StatSum .StageSum .Data div + div {
+	margin-left: 20px;
+}
+
+.Data div::before {
+	position: relative;
+	display: block;
+	height: 30px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-size: 20px;
+	color: rgba(200, 200, 200, 1);
+}
+
+.Data .GoldSum,
+.Data .RedSum {
+	width: calc(50% - 20px);
+}
+
+.Data .RescueSum,
+.Data .HelpedSum,
+.Data .eSpt {
+	width: calc((100% - 20px) / 3);
+	margin-top: 10px;
+}
+
+.Data .GoldSum::before {
+	width: 30px;
+	content: '';
+	background-image: url(../images/gold.png);
+}
+.Data .RedSum::before {
+	width: 30px;
+	content: '';
+	background-image: url(../images/red.png);
+}
+
+.Data .RescueSum::before {
+	content: '救助回数';
+}
+
+.Data .HelpedSum::before {
+	content: '死亡回数';
+}
+
+.Data .eSpt::before {
+	content: 'e鮭';
+}

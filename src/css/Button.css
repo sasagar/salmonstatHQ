@@ -1,0 +1,23 @@
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	width: 980px;
+	margin: 20px auto;
+}
+
+.buttons .statMoveBtn {
+	font-family: Splatoon1;
+	width: 23%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.75);
+	border-radius: 20px;
+	color: rgba(255, 255, 0, 1);
+	cursor: pointer;
+}
+
+.buttons .statMoveBtn:hover {
+	background-color: rgba(0, 0, 0, 0.5);
+}

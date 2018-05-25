@@ -1,0 +1,25 @@
+.Gnav {
+	width: 100%;
+	background-color: #000;
+	margin-bottom: 30px;
+}
+
+.Gnav ul {
+	display: flex;
+	margin: 0 auto;
+	width: 980px;
+	box-sizing: border-box;
+	list-style: none;
+	align-items: center;
+}
+
+.Gnav ul li {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	height: 40px;
+	border-left: 1px #fff solid;
+	border-right: 1px #fff solid;
+}

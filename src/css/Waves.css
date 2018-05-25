@@ -1,0 +1,173 @@
+.Waves {
+	counter-reset: wave 0;
+}
+
+.Waves .Wave {
+	background-color: rgba(220, 120, 0, 1);
+	border-radius: 10px;
+	color: rgba(0, 0, 0, 1);
+	margin-top: 20px;
+	overflow: hidden;
+	counter-increment: wave 1;
+	position: relative;
+}
+
+.Waves .Wave h3::after {
+	content: ' ' counter(wave);
+}
+.Wave .container {
+	position: relative;
+	display: flex;
+}
+
+.Wave .Result {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: rotate(30deg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 11;
+}
+
+.Wave .Result .Splat1 {
+	width: 150px;
+	height: 150px;
+	background-color: rgba(29, 184, 81, 0.8);
+	-webkit-mask-image: url(../images/splat1.svg);
+	mask-image: url(../images/splat1.svg);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	z-index: 12;
+}
+
+.Wave .Result .ResultWord {
+	position: absolute;
+	font-family: Splatoon1;
+	font-size: 33px;
+	color: rgba(255, 255, 0, 1);
+	filter: drop-shadow(3px 3px #000);
+	z-index: 13;
+}
+
+.fullTide,
+.midTide,
+.lowTide {
+	position: absolute;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.33);
+	bottom: 0;
+	z-index: 0;
+}
+
+.fullTide::before,
+.midTide::before,
+.lowTide::before {
+	background: rgba(0, 0, 0, 0.33);
+	position: absolute;
+	bottom: 100%;
+	content: '';
+	width: 100%;
+	height: 20px;
+	margin-top: -36px;
+	left: 0;
+	-webkit-mask-image: url(../images/mask.png);
+	mask-image: url(../images/mask.png);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+}
+
+.fullTide {
+	height: 100%;
+}
+
+.midTide {
+	height: 66%;
+}
+.lowTide {
+	height: 33%;
+}
+
+.Tide {
+	display: none;
+}
+
+.left,
+.right {
+	margin: 20px;
+	z-index: 10;
+}
+
+.left {
+	width: 200px;
+}
+
+.right {
+	flex: 1;
+}
+
+.weapon {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.weapon::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 160px;
+	height: 170px;
+	background-color: rgba(15, 92, 40, 0.85);
+	-webkit-mask-image: url(../images/splat2.svg);
+	mask-image: url(../images/splat2.svg);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	z-index: 1;
+}
+
+.weapon img {
+	display: block;
+	width: 150px;
+	z-index: 10;
+	padding-bottom: 20px;
+	filter: drop-shadow(3px 5px 2px #000);
+}
+
+.right .Data {
+	display: block;
+	padding: 0;
+}
+
+.right .Data div {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.right .Data div + div {
+	margin-left: 0;
+	margin-top: 10px;
+}
+
+.right .Data .Event {
+	text-align: center;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.right .Data .Event::before {
+	display: block;
+	content: 'Waveの種別:';
+	margin-right: 10px;
+}
