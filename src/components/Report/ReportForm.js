@@ -27,7 +27,7 @@ class ReportForm extends Component {
 						spCount: 0,
 						randomId: -1,
 						death: false,
-						weaponTag: 0,
+						weaponTag: -1,
 						success: false,
 						tide: 1,
 						event: 0,
@@ -39,7 +39,7 @@ class ReportForm extends Component {
 						spCount: 0,
 						randomId: -1,
 						death: false,
-						weaponTag: 0,
+						weaponTag: -1,
 						success: false,
 						tide: 1,
 						event: 0,
@@ -51,7 +51,7 @@ class ReportForm extends Component {
 						spCount: 0,
 						randomId: -1,
 						death: false,
-						weaponTag: 0,
+						weaponTag: -1,
 						success: false,
 						tide: 1,
 						event: 0,
@@ -146,7 +146,6 @@ class ReportForm extends Component {
 				this.setState({
 					stat: tmpStat
 				});
-				console.dir(sumGold);
 				break;
 			}
 
@@ -288,6 +287,7 @@ const WaveReport = ({ shiftList, shift, handler, waveList }) => {
 				handler={handler}
 				waveData={waveList[wave - 1]}
 				key={wave}
+				waveList={waveList}
 			/>
 		);
 		wave++;
