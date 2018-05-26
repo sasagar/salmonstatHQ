@@ -7,6 +7,7 @@
 .Gnav ul {
 	display: flex;
 	margin: 0 auto;
+	padding: 0;
 	width: 980px;
 	box-sizing: border-box;
 	list-style: none;
@@ -19,7 +20,18 @@
 	justify-content: center;
 	align-items: center;
 	color: #fff;
-	height: 40px;
+	height: 50px;
 	border-left: 1px #fff solid;
 	border-right: 1px #fff solid;
+	cursor: pointer;
+	font-size: 30px;
+}
+
+.Gnav ul li.Active {
+	background-color: rgba(255, 180, 0, 0.9);
+	color: #000;
+}
+
+.Gnav ul li:hover {
+	background-color: rgba(29, 184, 81, 0.8);
 }

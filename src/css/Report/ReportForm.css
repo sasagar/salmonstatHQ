@@ -1,0 +1,80 @@
+.ReportForm {
+	background: rgba(0, 0, 0, 0.8) url(../../images/border.png) top;
+	background-size: 80px 80px;
+	border-radius: 20px;
+	padding: 0 0 20px 0;
+	margin-bottom: 24px;
+	color: #fff;
+	font-family: Splatoon2, sans-serif;
+	box-shadow: 1px 1px 0 #000;
+	width: 980px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.ReportForm .Heading {
+	color: #fff;
+	font-size: 17px;
+	border-bottom: 3px dashed #666;
+	padding: 10px 12px 3px;
+}
+
+.ReportForm .Heading::before {
+	position: relative;
+	display: inline-block;
+	content: '';
+	background: url(../../images/salmon.png) 50% no-repeat;
+	width: 31.5px;
+	height: 21px;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 10px;
+	top: -2px;
+}
+
+.ReportForm .Heading .Title {
+	font-size: 20px;
+}
+
+.ReportForm .Result {
+	background-color: rgba(255, 255, 0, 1);
+	margin: 0 20px;
+	color: #000;
+	border-radius: 10px;
+	font-size: 30px;
+}
+
+.ReportForm .Result > div {
+	display: flex;
+	padding: 10px 0;
+}
+
+.ReportForm .Result > div > div {
+	flex: 1;
+}
+
+.ReportForm .Result .Stage {
+	border-bottom: 3px dashed #666;
+}
+
+.ReportForm .Result > div > div label {
+	margin-right: 10px;
+}
+
+.ReportForm .Result > div > div input {
+	font-size: 30px;
+	text-align: right;
+	font-family: Splatoon2;
+	line-height: 1;
+	height: 40px;
+	width: 80px;
+	background-color: #000;
+	border-radius: 40px;
+	color: #fff;
+	padding: 0 20px;
+	border: none;
+}
+
+label {
+	cursor: pointer;
+}

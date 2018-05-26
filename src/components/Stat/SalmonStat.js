@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/SalmonStat.css';
+import '../../css/Stat/SalmonStat.css';
 
 import StageWeaponList from './StageWeaponList';
 import Waves from './Waves';
 import Button from './Button';
-import { AvailCheck, TimeFormat } from '../common/common';
+import { AvailCheck, TimeFormat } from '../../common/common';
 
 const SalmonStat = ({
 	shiftList,
@@ -17,7 +17,11 @@ const SalmonStat = ({
 	onButtonPlus10,
 	onButtonMinus10
 }) => {
-	if (typeof shiftList !== 'undefined' && shiftList.length !== 0) {
+	if (
+		typeof shiftList !== 'undefined' &&
+		typeof stats !== 'undefined' &&
+		shiftList.length !== 0
+	) {
 		const period = new Date(stats[dataset].period);
 		const stage = shiftList.filter(data => {
 			let res = false;

@@ -35,8 +35,8 @@
 	width: 150px;
 	height: 150px;
 	background-color: rgba(29, 184, 81, 0.8);
-	-webkit-mask-image: url(../images/splat1.svg);
-	mask-image: url(../images/splat1.svg);
+	-webkit-mask-image: url(../../images/splat1.svg);
+	mask-image: url(../../images/splat1.svg);
 	-webkit-mask-repeat: no-repeat;
 	mask-repeat: no-repeat;
 	-webkit-mask-size: 100% 100%;
@@ -74,8 +74,8 @@
 	height: 20px;
 	margin-top: -36px;
 	left: 0;
-	-webkit-mask-image: url(../images/mask.png);
-	mask-image: url(../images/mask.png);
+	-webkit-mask-image: url(../../images/mask.png);
+	mask-image: url(../../images/mask.png);
 	-webkit-mask-repeat: no-repeat;
 	mask-repeat: no-repeat;
 	-webkit-mask-size: 100% 100%;
@@ -128,8 +128,8 @@
 	width: 160px;
 	height: 170px;
 	background-color: rgba(15, 92, 40, 0.85);
-	-webkit-mask-image: url(../images/splat2.svg);
-	mask-image: url(../images/splat2.svg);
+	-webkit-mask-image: url(../../images/splat2.svg);
+	mask-image: url(../../images/splat2.svg);
 	-webkit-mask-repeat: no-repeat;
 	mask-repeat: no-repeat;
 	-webkit-mask-size: 100% 100%;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/SalmonWeaponList.css';
+import '../../css/Stat/SalmonWeaponList.css';
 
 const StageWeaponList = ({ weapons }) => {
 	const StageWeapon = weapons.map(weapon => {

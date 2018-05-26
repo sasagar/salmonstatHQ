@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/Button.css';
+import '../../css/Stat/Button.css';
 
 const Button = ({ plus, minus, plus10, minus10 }) => {
 	return (

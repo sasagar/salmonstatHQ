@@ -4,7 +4,7 @@ import './App.css';
 import stats from './json/SalmonRec.json';
 import info from './json/info.json';
 
-import SalmonStat from './components/SalmonStat';
+import SalmonStatHQ from './components/SalmonStatHQ';
 import Gnav from './components/Gnav';
 
 class App extends Component {
@@ -14,7 +14,8 @@ class App extends Component {
 			shiftList: [],
 			dataset: stats.length - 1,
 			stats: stats,
-			info: info
+			info: info,
+			tab: 'Stat'
 		};
 	}
 	componentWillMount() {
@@ -69,6 +70,12 @@ class App extends Component {
 		}
 	};
 
+	onTabChange = tabName => {
+		this.setState({
+			tab: tabName
+		});
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -78,9 +85,9 @@ class App extends Component {
 						<span>SalmonStat HQ</span>
 					</h3>
 				</header>
-				<Gnav />
-				<SalmonStat
-					className="SalmonStat"
+				<Gnav tab={this.state.tab} onTabChange={this.onTabChange} />
+				<SalmonStatHQ
+					className="SalmonStatHQ"
 					shiftList={this.state.shiftList}
 					dataset={this.state.dataset}
 					stats={this.state.stats}
@@ -89,6 +96,7 @@ class App extends Component {
 					onButtonMinus={this.onButtonMinus}
 					onButtonPlus10={this.onButtonPlus10}
 					onButtonMinus10={this.onButtonMinus10}
+					tab={this.state.tab}
 				/>
 			</div>
 		);

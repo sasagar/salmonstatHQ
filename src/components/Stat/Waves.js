@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/Waves.css';
+import '../../css/Stat/Waves.css';
 
-import { AvailCheck } from '../common/common';
+import { AvailCheck } from '../../common/common';
 
 const Waves = ({ waveList, info, shift, spID }) => {
 	const waveAll = waveList.map((wave, id) => {
