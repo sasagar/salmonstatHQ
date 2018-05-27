@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import SalmonStat from './Stat/SalmonStat';
 import ReportForm from './Report/ReportForm';
+import coopWeapon from '../json/coopWeapon.json';
+
 import '../css/SalmonStatHQ.css';
 
 const SalmonStatHQ = ({
@@ -17,6 +19,23 @@ const SalmonStatHQ = ({
 	tab
 }) => {
 	const view = () => {
+		let weaponTmpList = [];
+
+		shiftList.forEach(shift => {
+			weaponTmpList = weaponTmpList.concat(shift.weapons);
+		});
+
+		weaponTmpList = weaponTmpList.concat(coopWeapon);
+		weaponTmpList = weaponTmpList.filter(v => v);
+		weaponTmpList = weaponTmpList.sort((a, b) => {
+			return a.id < b.id ? -1 : 1;
+		});
+		let weaponList = [];
+		weaponTmpList.forEach(weapon => {
+			weaponList[weapon.id] = weapon;
+		});
+		weaponList = weaponList.filter(v => v);
+
 		switch (tab) {
 		case 'Report':
 			return (
@@ -26,6 +45,7 @@ const SalmonStatHQ = ({
 					dataset={dataset}
 					stats={stats}
 					info={info}
+					weaponList={weaponList}
 				/>
 			);
 
@@ -44,6 +64,7 @@ const SalmonStatHQ = ({
 					onButtonMinus={onButtonMinus}
 					onButtonPlus10={onButtonPlus10}
 					onButtonMinus10={onButtonMinus10}
+					weaponList={weaponList}
 				/>
 			);
 		}

@@ -6,7 +6,6 @@ import StageWeaponList from './StageWeaponList';
 import Waves from './Waves';
 import Button from './Button';
 import { AvailCheck, TimeFormat } from '../../common/common';
-import coopWeapon from '../../json/coopWeapon.json';
 
 const SalmonStat = ({
 	shiftList,
@@ -16,7 +15,8 @@ const SalmonStat = ({
 	onButtonPlus,
 	onButtonMinus,
 	onButtonPlus10,
-	onButtonMinus10
+	onButtonMinus10,
+	weaponList
 }) => {
 	if (
 		typeof shiftList !== 'undefined' &&
@@ -30,18 +30,6 @@ const SalmonStat = ({
 				res = true;
 			}
 			return res;
-		});
-
-		let weaponTmpList = [];
-
-		shiftList.forEach(shift => {
-			weaponTmpList = weaponTmpList.concat(shift.weapons);
-		});
-
-		weaponTmpList = weaponTmpList.concat(coopWeapon);
-		weaponTmpList = weaponTmpList.filter(v => v);
-		const weaponList = weaponTmpList.filter((x, i, self) => {
-			return self.indexOf(x) === i;
 		});
 
 		return (

@@ -31,7 +31,8 @@ class ReportForm extends Component {
 						success: false,
 						tide: 1,
 						event: 0,
-						weaponId: 0
+						weaponId: 0,
+						type: 0
 					},
 					{
 						result: 0,
@@ -43,7 +44,8 @@ class ReportForm extends Component {
 						success: false,
 						tide: 1,
 						event: 0,
-						weaponId: 0
+						weaponId: 0,
+						type: 0
 					},
 					{
 						result: 0,
@@ -55,7 +57,8 @@ class ReportForm extends Component {
 						success: false,
 						tide: 1,
 						event: 0,
-						weaponId: 0
+						weaponId: 0,
+						type: 0
 					}
 				],
 				gold: 0,
@@ -151,6 +154,27 @@ class ReportForm extends Component {
 
 			case 'weapon':
 				tmpArr[wave].weaponId = parseInt(value);
+				if (tmpArr[wave].weaponId !== 9999) {
+					tmpArr[wave].randomId = -1;
+				}
+				this.setState(
+					(stat: {
+							waveList: tmpArr
+						})
+				);
+				break;
+
+			case 'randomId':
+				tmpArr[wave].randomId = parseInt(value);
+				this.setState(
+					(stat: {
+							waveList: tmpArr
+						})
+				);
+				break;
+
+			case 'type':
+				tmpArr[wave].type = parseInt(value);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -240,6 +264,7 @@ class ReportForm extends Component {
 		const dataset = this.props.dataset;
 		const stats = this.props.stats;
 		const info = this.props.info;
+		const weaponList = this.props.weaponList;
 
 		return (
 			<div className="ReportForm">
@@ -252,6 +277,7 @@ class ReportForm extends Component {
 					shift={this.state.shift}
 					handler={this.changeHandler}
 					waveList={this.state.stat.waveList}
+					weaponList={weaponList}
 				/>
 				<Result
 					shiftList={shiftList}
@@ -264,7 +290,7 @@ class ReportForm extends Component {
 	}
 }
 
-const WaveReport = ({ shiftList, shift, handler, waveList }) => {
+const WaveReport = ({ shiftList, shift, handler, waveList, weaponList }) => {
 	const tmpCount = waveList.filter(oneWave => {
 		return oneWave.success === true;
 	});
@@ -288,6 +314,7 @@ const WaveReport = ({ shiftList, shift, handler, waveList }) => {
 				waveData={waveList[wave - 1]}
 				key={wave}
 				waveList={waveList}
+				weaponList={weaponList}
 			/>
 		);
 		wave++;

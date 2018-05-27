@@ -111,12 +111,21 @@
 	flex: 1;
 }
 
+.weaponList {
+	display: flex;
+	width: 100%;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .weapon {
 	position: relative;
 	width: 200px;
 	height: 200px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -135,6 +144,11 @@
 	-webkit-mask-size: 100% 100%;
 	mask-size: 100% 100%;
 	z-index: 1;
+}
+
+.weapon label {
+	display: block;
+	width: 100%;
 }
 
 .weapon img {
