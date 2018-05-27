@@ -6,6 +6,7 @@ import StageWeaponList from './StageWeaponList';
 import Waves from './Waves';
 import Button from './Button';
 import { AvailCheck, TimeFormat } from '../../common/common';
+import coopWeapon from '../../json/coopWeapon.json';
 
 const SalmonStat = ({
 	shiftList,
@@ -31,6 +32,18 @@ const SalmonStat = ({
 			return res;
 		});
 
+		let weaponTmpList = [];
+
+		shiftList.forEach(shift => {
+			weaponTmpList = weaponTmpList.concat(shift.weapons);
+		});
+
+		weaponTmpList = weaponTmpList.concat(coopWeapon);
+		weaponTmpList = weaponTmpList.filter(v => v);
+		const weaponList = weaponTmpList.filter((x, i, self) => {
+			return self.indexOf(x) === i;
+		});
+
 		return (
 			<div className="SalmonStat">
 				<Button
@@ -44,6 +57,7 @@ const SalmonStat = ({
 					shift={stage[0]}
 					period={period}
 					info={info}
+					weaponList={weaponList}
 				/>
 				<Button
 					minus10={onButtonMinus10}
@@ -69,7 +83,7 @@ SalmonStat.propTypes = {
 	onButtonMinus10: PropTypes.func.isRequired
 };
 
-const Stats = ({ stat, shift, period, info }) => {
+const Stats = ({ stat, shift, period, info, weaponList }) => {
 	const end = new Date(shift.end);
 	const result = () => {
 		const resLength = stat.waveList.length;
@@ -163,6 +177,7 @@ const Stats = ({ stat, shift, period, info }) => {
 							info={info}
 							shift={shift}
 							spID={stat.spId}
+							weaponList={weaponList}
 						/>
 					</div>
 				</div>

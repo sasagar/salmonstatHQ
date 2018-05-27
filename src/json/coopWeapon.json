@@ -1,0 +1,22 @@
+[
+	{
+		"id": 10000,
+		"image": "images/coop/Wst_Shooter_BlasterCoopBurst.png",
+		"name": "クマサン印のブラスター"
+	},
+	{
+		"id": 10001,
+		"image": ".images/coop/Wst_Umbrella_CoopAutoAssault.png",
+		"name": "クマサン印のシェルター"
+	},
+	{
+		"id": 10002,
+		"image": "images/coop/Wst_Charger_CoopSpark.png",
+		"name": "クマサン印のチャージャー"
+	},
+	{
+		"id": 10003,
+		"image": "images/coop/Wst_Slosher_CoopVase.png",
+		"name": "クマサン印のスロッシャー"
+	}
+]

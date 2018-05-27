@@ -171,3 +171,14 @@
 	content: 'Waveの種別:';
 	margin-right: 10px;
 }
+
+.Waves .Wave .container .weapon .random {
+	color: rgba(57, 228, 100, 1);
+	font-size: 50px;
+	font-family: Splatoon1;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	filter: drop-shadow(2px 2px #000);
+	z-index: 10;
+}

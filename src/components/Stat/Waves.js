@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../css/Stat/Waves.css';
 
+import '../../css/Stat/Waves.css';
 import { AvailCheck } from '../../common/common';
 
-const Waves = ({ waveList, info, shift, spID }) => {
+const Waves = ({ waveList, info, shift, spID, weaponList }) => {
 	const waveAll = waveList.map((wave, id) => {
 		return (
-			<OneWave wave={wave} info={info} shift={shift} spID={spID} key={id} />
+			<OneWave
+				wave={wave}
+				info={info}
+				shift={shift}
+				spID={spID}
+				key={id}
+				weaponList={weaponList}
+			/>
 		);
 	});
 	return <div className="Waves">{waveAll}</div>;
@@ -20,7 +27,7 @@ Waves.propTypes = {
 	spID: PropTypes.number.isRequired
 };
 
-const OneWave = ({ wave, info, shift, spID }) => {
+const OneWave = ({ wave, info, shift, spID, weaponList }) => {
 	let tideClass;
 	switch (wave.tide) {
 	case 0:
@@ -60,6 +67,37 @@ const OneWave = ({ wave, info, shift, spID }) => {
 		return sp.id === spID;
 	});
 
+	const weaponImage = () => {
+		if (wave.weaponId !== 9999) {
+			return (
+				<div className="weapon">
+					<img src={weaponSrc[0].image} alt={weaponSrc[0].name} />
+				</div>
+			);
+		} else {
+			const weaponTmpList = weaponList.filter(weaponTmp => {
+				return weaponTmp.id === wave.randomId;
+			});
+
+			if (weaponTmpList[0].id < 10000) {
+				return (
+					<div className="weapon">
+						<img src={weaponTmpList[0].image} alt={weaponTmpList[0].name} />
+						<div className="random">?</div>
+					</div>
+				);
+			} else {
+				const src = require(`../../${weaponTmpList[0].image}`);
+				return (
+					<div className="weapon">
+						<img src={src} alt={weaponTmpList[0].name} />
+						<div className="random">?</div>
+					</div>
+				);
+			}
+		}
+	};
+
 	return (
 		<div className="Wave">
 			<div className="Result">
@@ -69,11 +107,7 @@ const OneWave = ({ wave, info, shift, spID }) => {
 			<h3>Wave</h3>
 			<div className="container">
 				<div className={tideClass} />
-				<div className="left">
-					<div className="weapon">
-						<img src={weaponSrc[0].image} alt={weaponSrc[0].name} />
-					</div>
-				</div>
+				<div className="left">{weaponImage()}</div>
 				<div className="right">
 					<div className="Data">
 						<div className="Event">{eventName[0].name}</div>
