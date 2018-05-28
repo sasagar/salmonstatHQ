@@ -98,6 +98,33 @@ const OneWave = ({ wave, info, shift, spID, weaponList }) => {
 		}
 	};
 
+	const specialImg = () => {
+		switch (special[0].id) {
+		case 0: {
+			const src = require('../../images/special/hyperpresser.png');
+			return <img src={src} alt={special[0].name} />;
+		}
+
+		case 1: {
+			const src = require('../../images/special/jetpack.png');
+			return <img src={src} alt={special[0].name} />;
+		}
+
+		case 2: {
+			const src = require('../../images/special/superchakuchi.png');
+			return <img src={src} alt={special[0].name} />;
+		}
+
+		case 3: {
+			const src = require('../../images/special/splashbombpitcher.png');
+			return <img src={src} alt={special[0].name} />;
+		}
+
+		default:
+			return <span>スペシャルパック</span>;
+		}
+	};
+
 	return (
 		<div className="Wave">
 			<div className="Result">
@@ -116,7 +143,7 @@ const OneWave = ({ wave, info, shift, spID, weaponList }) => {
 							{AvailCheck(wave.norma)}
 						</div>
 						<div className="SpCount">
-							{special[0].name} 使用回数: {AvailCheck(wave.spCount)}回
+							{specialImg()} 使用回数: {AvailCheck(wave.spCount)}回
 						</div>
 					</div>
 				</div>

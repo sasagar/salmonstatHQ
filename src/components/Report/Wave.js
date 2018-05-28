@@ -238,8 +238,6 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 					<div className="randomWeapons">{random}</div>
 				</div>
 			);
-		} else {
-			return <div className="RandomSelector" />;
 		}
 	};
 	return (
