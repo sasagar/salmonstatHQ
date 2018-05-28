@@ -1,0 +1,194 @@
+.List .eachShift {
+	background: rgba(0, 0, 0, 0.8) url(../../images/border.png) top;
+	background-size: 80px 80px;
+	border-radius: 20px;
+	padding: 0px;
+	margin-bottom: 24px;
+	color: #fff;
+	font-family: Splatoon2, sans-serif;
+	box-shadow: 1px 1px 0 #000;
+	width: 980px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.List .eachShift + .eachShift {
+	margin-top: 10px;
+}
+
+.List .eachShift .Heading {
+	color: #fff;
+	font-size: 17px;
+	border-bottom: 3px dashed #666;
+	padding: 10px 12px 3px;
+}
+
+.List .eachShift .Heading::before {
+	position: relative;
+	display: inline-block;
+	content: '';
+	background: url(../../images/salmon.png) 50% no-repeat;
+	width: 31.5px;
+	height: 21px;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 10px;
+	top: -2px;
+}
+
+.List .eachShift .Heading .stageInfo {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px 250px;
+}
+
+.List .eachShift .Heading .stageInfo .stageName {
+	font-size: 30px;
+	color: #e55833;
+}
+
+.List .eachShift .Heading .stageInfo .weapons {
+	display: flex;
+}
+.List .eachShift .Heading .stageInfo .weapons .weapon {
+	width: auto;
+	height: auto;
+	background-color: rgba(255, 255, 0, 1);
+	padding: 5px;
+	border-radius: 50%;
+}
+
+.List .eachShift .Heading .stageInfo .weapons .weapon + .weapon {
+	margin-left: 5px;
+}
+
+.List .eachShift .Heading .stageInfo .weapons .weapon::before {
+	display: none;
+}
+
+.List .eachShift .Heading .stageInfo .weapons .weapon img {
+	width: 30px;
+	padding: 0;
+	filter: drop-shadow(1px 1px #000);
+}
+
+.List .eachShift .stageStats {
+	padding: 10px 20px;
+}
+
+.List .eachShift .stageStats .eachResult {
+	background-color: rgba(15, 92, 40, 1);
+	margin-top: 5px;
+	border-radius: 20px;
+	padding: 5px 20px;
+	text-align: left;
+	font-size: 12px;
+}
+
+.List .eachShift .stageStats .eachResult span {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.List .eachShift .stageStats .eachResult .id {
+	width: 30px;
+}
+
+.List .eachShift .stageStats .eachResult .result0 {
+	width: 80px;
+	background-color: rgba(255, 255, 0, 1);
+	color: #000;
+	line-height: 1;
+	padding: 3px 10px;
+	text-align: center;
+	border-radius: 15px;
+}
+
+.List .eachShift .stageStats .eachResult .result1,
+.List .eachShift .stageStats .eachResult .result2 {
+	width: 80px;
+	background-color: rgba(29, 184, 81, 1);
+	color: #000;
+	line-height: 1;
+	padding: 3px 10px;
+	text-align: center;
+	border-radius: 15px;
+}
+
+.List .eachShift .stageStats .eachResult .gold::before {
+	display: block;
+	content: '';
+	background: url('../../images/gold.png');
+	width: 12px;
+	height: 12px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 3px;
+	left: 10px;
+}
+
+.List .eachShift .stageStats .eachResult .gold {
+	position: relative;
+	width: 60px;
+	background-color: #e55833;
+	color: #000;
+	line-height: 1;
+	padding: 3px 10px;
+	text-align: right;
+	border-radius: 15px;
+}
+
+.List .eachShift .stageStats .eachResult .red::before {
+	display: block;
+	content: '';
+	background: url('../../images/red.png');
+	width: 12px;
+	height: 12px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 3px;
+	left: 10px;
+}
+
+.List .eachShift .stageStats .eachResult .red {
+	position: relative;
+	width: 45px;
+	background-color: #e55833;
+	color: #000;
+	line-height: 1;
+	padding: 3px 10px;
+	text-align: right;
+	border-radius: 15px;
+}
+
+.List .eachShift .stageStats .eachResult .wave {
+	width: 60px;
+	background-color: #000;
+	color: #fff;
+	line-height: 1;
+	padding: 3px 10px;
+	text-align: center;
+	border-radius: 15px;
+	border: 1px #fff solid;
+}
+
+.List .eachShift .stageStats .eachResult .wave img {
+	width: 12px;
+	margin-right: 5px;
+}
+
+.List .eachShift .stageStats .eachResult .eSpt {
+	width: 60px;
+	background-color: #000;
+	color: #fff;
+	line-height: 1;
+	padding: 3px 10px;
+	text-align: center;
+	border-radius: 15px;
+}

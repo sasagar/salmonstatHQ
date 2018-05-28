@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SalmonStat from './Stat/SalmonStat';
 import ReportForm from './Report/ReportForm';
+import List from './List/List';
 import coopWeapon from '../json/coopWeapon.json';
 
 import '../css/SalmonStatHQ.css';
@@ -50,7 +51,14 @@ const SalmonStatHQ = ({
 			);
 
 		case 'List':
-			return <div />;
+			return (
+				<List
+					className="List"
+					shiftList={shiftList}
+					stats={stats}
+					weaponList={weaponList}
+				/>
+			);
 
 		default:
 			return (
