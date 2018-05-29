@@ -9,10 +9,23 @@ const ShiftSelector = ({ shiftList, handler }) => {
 		return shift.stage !== null;
 	});
 
+	const shiftOptions = shifts.map((shift, index) => {
+		return (
+			<option value={index} key={index}>
+				{TimeFormat(new Date(shift.start))} - {TimeFormat(new Date(shift.end))}
+			</option>
+		);
+	});
+
 	return (
-		<div className="ShiftSelector">
-			{TimeFormat(new Date(shifts[shifts.length - 2].start))} -{' '}
-			{TimeFormat(new Date(shifts[shifts.length - 2].end))}
+		<div className="shiftSelector">
+			<select
+				name="reportShift0"
+				onChange={e => handler(e)}
+				defaultValue={shifts.length - 2}
+			>
+				{shiftOptions}
+			</select>
 		</div>
 	);
 };

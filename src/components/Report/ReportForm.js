@@ -9,8 +9,13 @@ class ReportForm extends Component {
 	constructor(props) {
 		super(props);
 
+		const shifts = this.shiftList.filter(shift => {
+			return shift.stage !== null;
+		});
+		const shift = shifts.length - 2;
+
 		this.state = {
-			shift: 0,
+			shift: shift,
 			stat: {
 				id: 0,
 				red: 0,
@@ -67,17 +72,14 @@ class ReportForm extends Component {
 			}
 		};
 
-		() => {
-			const shifts = this.props.shiftList.filter(shift => {
-				return shift.stage !== null;
-			});
-			this.setState({
-				shift: shifts.length - 2
-			});
-		};
-
 		this.changeHandler = this.changeHandler.bind(this);
 	}
+
+	shiftList = this.props.shiftList;
+	dataset = this.props.dataset;
+	stats = this.props.stats;
+	info = this.props.info;
+	weaponList = this.props.weaponList;
 
 	changeHandler(e, wave = -1) {
 		let stat = this.state.stat;
@@ -255,32 +257,35 @@ class ReportForm extends Component {
 					}
 				});
 				break;
+
+			case 'reportShift':
+				this.setState({
+					shift: parseInt(value)
+				});
+				break;
 			}
 		}
 	}
 
 	render() {
-		const shiftList = this.props.shiftList;
-		const dataset = this.props.dataset;
-		const stats = this.props.stats;
-		const info = this.props.info;
-		const weaponList = this.props.weaponList;
-
 		return (
 			<div className="ReportForm">
 				<div className="Heading">
 					<span className="Title">バイト業績報告書</span>
 				</div>
-				<ShiftSelector shiftList={shiftList} handler={this.changeHandler} />
+				<ShiftSelector
+					shiftList={this.shiftList}
+					handler={this.changeHandler}
+				/>
 				<WaveReport
-					shiftList={shiftList}
+					shiftList={this.shiftList}
 					shift={this.state.shift}
 					handler={this.changeHandler}
 					waveList={this.state.stat.waveList}
-					weaponList={weaponList}
+					weaponList={this.weaponList}
 				/>
 				<Result
-					shiftList={shiftList}
+					shiftList={this.shiftList}
 					shift={this.state.shift}
 					handler={this.changeHandler}
 					stat={this.state.stat}
