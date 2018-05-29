@@ -17,8 +17,7 @@
 		"eject": "react-scripts eject",
 		"electron": "node_modules/.bin/electron .",
 		"dev": "nf start -p 3000",
-		"package":
-			"electron-packager . salmonStatHQ --platform=darwin --arc=x64 --out=release"
+		"package": "electron-packager . salmonStatHQ --platform=darwin --arc=x64 --out=release"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",

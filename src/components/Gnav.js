@@ -6,7 +6,8 @@ const Gnav = ({ tab, onTabChange }) => {
 	let classes = {
 		Stat: '',
 		Report: '',
-		List: ''
+		List: '',
+		FileReader: ''
 	};
 	switch (tab) {
 	case 'Report':
@@ -15,6 +16,10 @@ const Gnav = ({ tab, onTabChange }) => {
 
 	case 'List':
 		classes.List = 'Active';
+		break;
+
+	case 'FileReader':
+		classes.FileReader = 'Active';
 		break;
 
 	default:
@@ -47,6 +52,14 @@ const Gnav = ({ tab, onTabChange }) => {
 					}}
 				>
 					報告書リスト
+				</li>
+				<li
+					className={classes.FileReader}
+					onClick={() => {
+						onTabChange('FileReader');
+					}}
+				>
+					ファイル読込
 				</li>
 			</ul>
 		</nav>

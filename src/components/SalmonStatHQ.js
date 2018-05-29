@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import SalmonStat from './Stat/SalmonStat';
 import ReportForm from './Report/ReportForm';
 import List from './List/List';
+import FileReader from './FileReader/FileReader';
 import coopWeapon from '../json/coopWeapon.json';
 
 import '../css/SalmonStatHQ.css';
@@ -18,7 +19,9 @@ const SalmonStatHQ = ({
 	onButtonPlus10,
 	onButtonMinus10,
 	tab,
-	tabSet
+	tabSet,
+	onFormSubmit,
+	onChange
 }) => {
 	const view = () => {
 		let weaponTmpList = [];
@@ -59,6 +62,16 @@ const SalmonStatHQ = ({
 					stats={stats}
 					weaponList={weaponList}
 					tabSet={tabSet}
+				/>
+			);
+
+		case 'FileReader':
+			return (
+				<FileReader
+					className="FileReader"
+					stats={stats}
+					onFormSubmit={onFormSubmit}
+					onChange={onChange}
 				/>
 			);
 

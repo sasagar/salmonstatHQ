@@ -21,6 +21,7 @@ const SalmonStat = ({
 	if (
 		typeof shiftList !== 'undefined' &&
 		typeof stats !== 'undefined' &&
+		stats.length !== 0 &&
 		shiftList.length !== 0
 	) {
 		const period = new Date(stats[dataset].period);

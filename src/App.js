@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+
 import logo from './images/SalmonRun_Title.png';
 import './App.css';
-import stats from './json/SalmonRec.json';
 import info from './json/info.json';
 
 import SalmonStatHQ from './components/SalmonStatHQ';
@@ -10,16 +10,24 @@ import Gnav from './components/Gnav';
 class App extends Component {
 	constructor(props) {
 		super(props);
+		let stats;
+		try {
+			stats = require(`${process.env.REACT_APPDIR}/SalmonRec.json`);
+		} catch (e) {
+			stats = [];
+		}
+
 		this.state = {
 			shiftList: [],
-			dataset: stats.length - 1,
+			dataset: stats.length - 2,
 			stats: stats,
 			info: info,
-			tab: 'Stat'
+			tab: 'Stat',
+			file: ''
 		};
 	}
 	componentWillMount() {
-		return fetch('https://spla2.yuu26.com/coop')
+		fetch('https://spla2.yuu26.com/coop')
 			.then(response => response.json())
 			.then(responseJson => {
 				this.setState({ shiftList: responseJson.result });
@@ -34,7 +42,7 @@ class App extends Component {
 	}
 
 	onButtonPlus = () => {
-		if (this.state.dataset + 1 < stats.length - 1) {
+		if (this.state.dataset + 1 < this.state.stats.length - 1) {
 			this.setState({
 				dataset: this.state.dataset + 1
 			});
@@ -48,13 +56,13 @@ class App extends Component {
 		}
 	};
 	onButtonPlus10 = () => {
-		if (this.state.dataset + 10 < stats.length - 1) {
+		if (this.state.dataset + 10 < this.state.stats.length - 1) {
 			this.setState({
 				dataset: this.state.dataset + 10
 			});
 		} else {
 			this.setState({
-				dataset: stats.length - 1
+				dataset: this.state.stats.length - 1
 			});
 		}
 	};
@@ -76,8 +84,31 @@ class App extends Component {
 		});
 	};
 
+	onFormSubmit = e => {
+		e.preventDefault(); // Stop form submit
+		const tmpStats = JSON.parse(this.state.file.data);
+		this.setState({
+			stats: tmpStats,
+			dataset: tmpStats.length - 2
+		});
+		const res = window.ipcRenderer.sendSync('setStat', tmpStats);
+		console.log(res);
+	};
+
+	onChange = e => {
+		const reader = new FileReader();
+
+		reader.readAsText(e.target.files[0]);
+
+		let data;
+		const onLoad = e => {
+			data = e.target.result;
+			this.setState({ file: { target: e.target.files, data: data } });
+		};
+		reader.onload = onLoad;
+	};
+
 	tabSet = dataset => {
-		console.log(dataset);
 		this.setState({
 			dataset: dataset
 		});
@@ -106,6 +137,8 @@ class App extends Component {
 					onButtonMinus10={this.onButtonMinus10}
 					tab={this.state.tab}
 					tabSet={this.tabSet}
+					onFormSubmit={this.onFormSubmit}
+					onChange={this.onChange}
 				/>
 			</div>
 		);

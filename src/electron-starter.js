@@ -1,11 +1,13 @@
-const electron = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 // Module to control application life.
-const app = electron.app;
 // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
 const url = require('url');
+
+const userDataDir = app.getPath('userData');
+
+process.env.REACT_APPDIR = userDataDir;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -18,7 +20,11 @@ function createWindow() {
 		height: 600,
 		minWidth: 980,
 		minHeight: 300,
-		center: true
+		center: true,
+		webPreferences: {
+			nodeIntegration: false,
+			preload: __dirname + '/preload.js'
+		}
 	});
 
 	// and load the index.html of the app.
@@ -66,3 +72,7 @@ app.on('activate', function() {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+ipcMain.on('setStat', async (event, stat) => {
+	console.log(stat);
+	event.returnValue = stat;
+});
