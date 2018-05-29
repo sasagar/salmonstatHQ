@@ -11,12 +11,15 @@ import {
 	resultGetter
 } from '../../common/common';
 
-const List = ({ shiftList, stats, weaponList }) => {
+const List = ({ shiftList, stats, weaponList, tabSet }) => {
 	if (
 		typeof shiftList !== 'undefined' &&
 		typeof stats !== 'undefined' &&
 		shiftList.length !== 0
 	) {
+		const length = stats.length;
+		const listReverse = shiftList.slice().reverse();
+
 		const eachStat = start => {
 			let eachData = stats.filter(stat => {
 				const dateStart = new Date(stat.period);
@@ -61,7 +64,11 @@ const List = ({ shiftList, stats, weaponList }) => {
 				const resultFlagObj = resultGetter(each);
 				const resultClass = 'result' + resultFlagObj.resultId;
 				return (
-					<div className="eachResult" key={index}>
+					<div
+						className="eachResult"
+						key={index}
+						onClick={() => tabSet(length - index - 1)}
+					>
 						<span className="id">#{each.id}</span>
 						<span className={resultClass}>{result(each)}</span>
 						<span className="gold">
@@ -98,7 +105,6 @@ const List = ({ shiftList, stats, weaponList }) => {
 			return res;
 		};
 
-		const listReverse = shiftList.reverse();
 		const shiftComponents = listReverse.map((shift, index) => {
 			const startTime = new Date(shift.start);
 			const now = new Date(Date.now());
@@ -129,8 +135,7 @@ const List = ({ shiftList, stats, weaponList }) => {
 
 List.propTypes = {
 	shiftList: PropTypes.array.isRequired,
-	stats: PropTypes.array.isRequired,
-	info: PropTypes.object.isRequired
+	stats: PropTypes.array.isRequired
 };
 
 export default List;

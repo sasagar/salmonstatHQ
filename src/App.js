@@ -76,6 +76,14 @@ class App extends Component {
 		});
 	};
 
+	tabSet = dataset => {
+		console.log(dataset);
+		this.setState({
+			dataset: dataset
+		});
+		this.onTabChange('Stat');
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -97,6 +105,7 @@ class App extends Component {
 					onButtonPlus10={this.onButtonPlus10}
 					onButtonMinus10={this.onButtonMinus10}
 					tab={this.state.tab}
+					tabSet={this.tabSet}
 				/>
 			</div>
 		);

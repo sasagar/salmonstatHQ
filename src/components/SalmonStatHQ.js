@@ -17,7 +17,8 @@ const SalmonStatHQ = ({
 	onButtonMinus,
 	onButtonPlus10,
 	onButtonMinus10,
-	tab
+	tab,
+	tabSet
 }) => {
 	const view = () => {
 		let weaponTmpList = [];
@@ -57,6 +58,7 @@ const SalmonStatHQ = ({
 					shiftList={shiftList}
 					stats={stats}
 					weaponList={weaponList}
+					tabSet={tabSet}
 				/>
 			);
 

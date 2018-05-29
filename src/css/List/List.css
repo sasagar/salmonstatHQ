@@ -87,6 +87,10 @@
 	font-size: 12px;
 }
 
+.List .eachShift .stageStats .eachResult:hover {
+	background-color: rgba(30, 184, 80, 0.75);
+}
+
 .List .eachShift .stageStats .eachResult span {
 	display: inline-block;
 	margin-right: 10px;
