@@ -4,6 +4,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 
 const path = require('path');
 const url = require('url');
+const fs = require('fs');
 
 const userDataDir = app.getPath('userData');
 
@@ -72,7 +73,30 @@ app.on('activate', function() {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-ipcMain.on('setStat', async (event, stat) => {
-	console.log(stat);
-	event.returnValue = stat;
+
+ipcMain.on('getAllStat', event => {
+	fs.readFile(
+		path.join(process.env.REACT_APPDIR, '/SalmonRec.json'),
+		(err, data) => {
+			if (err) {
+				console.log(err);
+				event.returnValue = [];
+			} else {
+				event.returnValue = JSON.parse(data);
+			}
+		}
+	);
+});
+
+ipcMain.on('setStat', (event, stat) => {
+	const text = JSON.stringify(stat);
+	fs.writeFile(
+		path.join(process.env.REACT_APPDIR, '/SalmonRec.json'),
+		text,
+		err => {
+			console.log(err);
+			event.returnValue = false;
+		}
+	);
+	event.returnValue = true;
 });

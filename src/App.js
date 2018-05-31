@@ -12,7 +12,7 @@ class App extends Component {
 		super(props);
 		let stats;
 		try {
-			stats = require(`${process.env.REACT_APPDIR}/SalmonRec.json`);
+			stats = window.ipcRenderer.sendSync('getAllStat');
 		} catch (e) {
 			stats = [];
 		}
@@ -92,7 +92,6 @@ class App extends Component {
 			dataset: tmpStats.length - 2
 		});
 		const res = window.ipcRenderer.sendSync('setStat', tmpStats);
-		console.log(res);
 	};
 
 	onChange = e => {

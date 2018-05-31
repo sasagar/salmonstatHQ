@@ -31,7 +31,10 @@ const List = ({ shiftList, stats, weaponList, tabSet }) => {
 				const weapon = num => {
 					if (each.waveList.length >= num) {
 						let res;
-						if (each.waveList[num - 1].weaponId < 9999) {
+
+						if (each.waveList[num - 1].weaponId === -1) {
+							return <div />;
+						} else if (each.waveList[num - 1].weaponId < 9999) {
 							const weaponId = weaponList.filter(weapon => {
 								return weapon.id === each.waveList[num - 1].weaponId;
 							});

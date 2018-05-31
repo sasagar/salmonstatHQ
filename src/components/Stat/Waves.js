@@ -68,7 +68,12 @@ const OneWave = ({ wave, info, shift, spID, weaponList }) => {
 	});
 
 	const weaponImage = () => {
-		if (wave.weaponId !== 9999) {
+		if (wave.weaponId === -1) {
+			return <div className="weapon" />;
+		} else if (wave.weaponId < 9999) {
+			const weaponSrc = weaponList.filter(weaponTmp => {
+				return weaponTmp.id === wave.weaponId;
+			});
 			return (
 				<div className="weapon">
 					<img src={weaponSrc[0].image} alt={weaponSrc[0].name} />

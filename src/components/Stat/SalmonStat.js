@@ -25,6 +25,7 @@ const SalmonStat = ({
 		shiftList.length !== 0
 	) {
 		const period = new Date(stats[dataset].period);
+
 		const stage = shiftList.filter(data => {
 			let res = false;
 			if (data.start_t === period.getTime() / 1000) {
