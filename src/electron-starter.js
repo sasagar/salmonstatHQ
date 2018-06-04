@@ -100,3 +100,59 @@ ipcMain.on('setStat', (event, stat) => {
 	);
 	event.returnValue = true;
 });
+
+ipcMain.on('addStat', (event, stat) => {
+	const readFile = (...args) => {
+		return new Promise(function(resolve, reject) {
+			fs.readFile(...args, function(error, data) {
+				if (error) reject(error);
+				else resolve(data);
+			});
+		});
+	};
+	let file;
+	readFile(path.join(process.env.REACT_APPDIR, '/SalmonRec.json'))
+		.then(data => {
+			file = JSON.parse(data);
+		})
+		.then(() => {
+			const time = new Date(Date.now());
+			const isoTime = time.toISOString();
+			stat.time = isoTime;
+			const id = file[file.length - 1].id + 1;
+			stat.id = id;
+			delete stat.waveList[0].type;
+			delete stat.waveList[1].type;
+			delete stat.waveList[2].type;
+		})
+		.then(() => {
+			const successes = stat.waveList.map(wave => {
+				return wave.success;
+			});
+			const waves = successes.indexOf(false);
+			return waves;
+		})
+		.then(waves => {
+			while (waves < 2) {
+				delete stat.waveList.pop();
+				waves++;
+			}
+		})
+		.then(() => {
+			file.push(stat);
+		})
+		.then(() => {
+			const data = JSON.stringify(file);
+			fs.writeFile(
+				path.join(process.env.REACT_APPDIR, '/SalmonRec.json'),
+				data
+			);
+		})
+		.then(() => {
+			event.returnValue = true;
+		})
+		.catch(error => {
+			console.log(error);
+			event.returnValue = false;
+		});
+});

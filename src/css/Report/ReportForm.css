@@ -42,6 +42,7 @@
 	color: #000;
 	border-radius: 10px;
 	font-size: 30px;
+	padding-bottom: 5px;
 }
 
 .ReportForm .Result > div {
@@ -77,4 +78,21 @@
 
 label {
 	cursor: pointer;
+}
+
+.reportSubmit {
+	display: block;
+	margin: 0 auto 10px;
+	width: 300px;
+	background-color: #ff5033;
+	border-radius: 10px;
+	border: none;
+	font-size: 20px;
+	padding: 5px 10px;
+	cursor: pointer;
+	font-family: Splatoon2;
+}
+
+.reportSubmit:hover {
+	background-color: #ff7d66;
 }

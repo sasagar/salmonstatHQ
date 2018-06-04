@@ -19,7 +19,7 @@ class App extends Component {
 
 		this.state = {
 			shiftList: [],
-			dataset: stats.length - 2,
+			dataset: stats.length - 1,
 			stats: stats,
 			info: info,
 			tab: 'Stat',
@@ -42,7 +42,7 @@ class App extends Component {
 	}
 
 	onButtonPlus = () => {
-		if (this.state.dataset + 1 < this.state.stats.length - 1) {
+		if (this.state.dataset + 1 <= this.state.stats.length - 1) {
 			this.setState({
 				dataset: this.state.dataset + 1
 			});
@@ -56,7 +56,7 @@ class App extends Component {
 		}
 	};
 	onButtonPlus10 = () => {
-		if (this.state.dataset + 10 < this.state.stats.length - 1) {
+		if (this.state.dataset + 10 <= this.state.stats.length - 1) {
 			this.setState({
 				dataset: this.state.dataset + 10
 			});

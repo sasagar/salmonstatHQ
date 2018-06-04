@@ -13,6 +13,7 @@ class ReportForm extends Component {
 			return shift.stage !== null;
 		});
 		const shift = shifts.length - 2;
+		const period = shifts[shifts.length - 2].start;
 
 		this.state = {
 			shift: shift,
@@ -20,11 +21,12 @@ class ReportForm extends Component {
 				id: 0,
 				red: 0,
 				helped: 0,
-				period: '',
+				period: period,
 				sumRed: 0,
 				rescue: 0,
 				sumGold: 0,
 				tag: 0,
+				time: '',
 				waveList: [
 					{
 						result: 0,
@@ -73,6 +75,7 @@ class ReportForm extends Component {
 		};
 
 		this.changeHandler = this.changeHandler.bind(this);
+		this.clickHandler = this.clickHandler.bind(this);
 	}
 
 	shiftList = this.props.shiftList;
@@ -267,6 +270,21 @@ class ReportForm extends Component {
 		}
 	}
 
+	clickHandler = e => {
+		let rptSubmit;
+
+		switch (e.target.id) {
+		case 'reportSubmit':
+			rptSubmit = window.ipcRenderer.sendSync('addStat', this.state.stat);
+			console.dir(rptSubmit);
+			alert('登録出来ました！');
+			break;
+
+		default:
+			break;
+		}
+	};
+
 	render() {
 		return (
 			<div className="ReportForm">
@@ -289,6 +307,7 @@ class ReportForm extends Component {
 					shift={this.state.shift}
 					handler={this.changeHandler}
 					stat={this.state.stat}
+					clickHandler={this.clickHandler}
 				/>
 			</div>
 		);
@@ -327,14 +346,14 @@ const WaveReport = ({ shiftList, shift, handler, waveList, weaponList }) => {
 	return <div>{waveComponent}</div>;
 };
 
-const Result = ({ shiftList, shift, handler, stat }) => {
+const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
 	return (
 		<div className="Result">
 			<div className="Stage">
 				<div className="reportResultInput">
 					<label htmlFor="reportResultGold">総金イクラ</label>
 					<input
-						type="text"
+						type="number"
 						name="reportResultGold"
 						id="reportResultGold"
 						value={stat.sumGold}
@@ -344,7 +363,7 @@ const Result = ({ shiftList, shift, handler, stat }) => {
 				<div className="reportResultInput">
 					<label htmlFor="reportResultRed">総赤イクラ</label>
 					<input
-						type="text"
+						type="number"
 						name="reportResultRed"
 						id="reportResultRed"
 						value={stat.sumRed}
@@ -357,7 +376,7 @@ const Result = ({ shiftList, shift, handler, stat }) => {
 					<div className="reportResultInput">
 						<label htmlFor="reportResultPersonalGold">個人金イクラ</label>
 						<input
-							type="text"
+							type="number"
 							name="reportResultPersonalGold"
 							id="reportResultPersonalGold"
 							value={stat.gold}
@@ -367,7 +386,7 @@ const Result = ({ shiftList, shift, handler, stat }) => {
 					<div className="reportResultInput">
 						<label htmlFor="reportResultPersonalRed">個人赤イクラ</label>
 						<input
-							type="text"
+							type="number"
 							name="reportResultPersonalRed"
 							id="reportResultPersonalRed"
 							value={stat.red}
@@ -379,7 +398,7 @@ const Result = ({ shiftList, shift, handler, stat }) => {
 					<div className="reportResultInput">
 						<label htmlFor="reportResultPersonalRescue">救出数</label>
 						<input
-							type="text"
+							type="number"
 							name="reportResultPersonalRescue"
 							id="reportResultPersonalRescue"
 							value={stat.rescue}
@@ -389,7 +408,7 @@ const Result = ({ shiftList, shift, handler, stat }) => {
 					<div className="reportResultInput">
 						<label htmlFor="reportResultPersonalDeath">死亡数</label>
 						<input
-							type="text"
+							type="number"
 							name="reportResultPersonalDeath"
 							id="reportResultPersonalDeath"
 							value={stat.helped}
@@ -398,6 +417,14 @@ const Result = ({ shiftList, shift, handler, stat }) => {
 					</div>
 				</div>
 			</div>
+			<button
+				type="button"
+				className="reportSubmit"
+				id="reportSubmit"
+				onClick={clickHandler}
+			>
+				報告！
+			</button>
 		</div>
 	);
 };

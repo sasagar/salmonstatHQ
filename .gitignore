@@ -24,3 +24,6 @@ yarn-error.log*
 .eslintrc
 /original
 SalmonRec*.json
+
+*.ai
+/*.iconset
