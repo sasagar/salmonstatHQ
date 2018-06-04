@@ -2,6 +2,9 @@
 
 Splatoon2 の SalmonRun について、自力でなんとかして記録していくためのアプリ。
 
+ダウンロードはコチラから。  
+[Release Page](https://github.com/sasagar/salmonstatHQ/releases/)
+
 ---
 
 ## 現在は Beta 版です
@@ -20,6 +23,7 @@ Splatoon2 の SalmonRun について、自力でなんとかして記録して�
 * JSON 取り込みしたときのダイアログ追加
 * 記録の削除
 * 記録保存時のバリデーション（不整合チェック）
+* 直近のシフト表示
 * データ分析（どんなモノを見たいかご意見求む）
 
 ---
@@ -31,4 +35,5 @@ Splatoon2 の SalmonRun について、自力でなんとかして記録して�
 
 ---
 
-様々な素材については、原則、任天堂をはじめとした、各社の権利に基づきます。記述コード・アイコン: © SASAGAWA Kiyoshi (Twitter)[https://twitter.com/sasagawaki]
+様々な素材については、原則、任天堂をはじめとした、各社の権利に基づきます。  
+記述コード・アイコン: © SASAGAWA Kiyoshi [Twitter](https://twitter.com/sasagawaki)
