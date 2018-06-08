@@ -35,7 +35,8 @@
 		"directories": {
 			"output": "../dist"
 		},
-		"electronVersion": "2.0.2"
+		"electronVersion": "2.0.2",
+		"extends": null
 	},
 	"scripts": {
 		"start": "react-scripts start",
