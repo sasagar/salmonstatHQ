@@ -111,8 +111,9 @@ const List = ({ shiftList, stats, weaponList, tabSet }) => {
 		const shiftComponents = listReverse.map((shift, index) => {
 			const startTime = new Date(shift.start);
 			const now = new Date(Date.now());
+			let res = '';
 			if (startTime.getTime() < now.getTime()) {
-				return (
+				res = (
 					<div className="eachShift" key={index}>
 						<div className="Heading">
 							<h3>
@@ -128,6 +129,7 @@ const List = ({ shiftList, stats, weaponList, tabSet }) => {
 					</div>
 				);
 			}
+			return res;
 		});
 
 		return <div className="List">{shiftComponents}</div>;

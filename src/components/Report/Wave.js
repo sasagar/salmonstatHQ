@@ -208,8 +208,9 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 		}
 		if (waveList[wave].weaponId === 9999) {
 			random = weapons.map(weapon => {
+				let res = '';
 				if (weapon.id < 9999) {
-					return (
+					res = (
 						<div key={weapon.id}>
 							<input
 								type="radio"
@@ -226,7 +227,7 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 					);
 				} else if (weapon.id > 9999) {
 					const src = require(`../../${weapon.image}`);
-					return (
+					res = (
 						<div key={weapon.id}>
 							<input
 								type="radio"
@@ -242,6 +243,7 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 						</div>
 					);
 				}
+				return res;
 			});
 			return (
 				<div className="RandomSelector">
