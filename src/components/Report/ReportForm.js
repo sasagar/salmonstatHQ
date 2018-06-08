@@ -83,6 +83,7 @@ class ReportForm extends Component {
 	stats = this.props.stats;
 	info = this.props.info;
 	weaponList = this.props.weaponList;
+	reload = this.props.reload;
 
 	changeHandler(e, wave = -1) {
 		let stat = this.state.stat;
@@ -94,7 +95,7 @@ class ReportForm extends Component {
 		if (wave >= 0) {
 			switch (target) {
 			case 'tide':
-				tmpArr[wave].tide = parseInt(value);
+				tmpArr[wave].tide = parseInt(value, 10);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -103,7 +104,7 @@ class ReportForm extends Component {
 				break;
 
 			case 'event':
-				tmpArr[wave].event = parseInt(value);
+				tmpArr[wave].event = parseInt(value, 10);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -112,7 +113,7 @@ class ReportForm extends Component {
 				break;
 
 			case 'spCount':
-				tmpArr[wave].spCount = parseInt(value);
+				tmpArr[wave].spCount = parseInt(value, 10);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -121,7 +122,7 @@ class ReportForm extends Component {
 				break;
 
 			case 'norma':
-				tmpArr[wave].norma = parseInt(value);
+				tmpArr[wave].norma = parseInt(value, 10);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -130,7 +131,7 @@ class ReportForm extends Component {
 				break;
 
 			case 'gold': {
-				tmpArr[wave].result = parseInt(value);
+				tmpArr[wave].result = parseInt(value, 10);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -158,7 +159,7 @@ class ReportForm extends Component {
 			}
 
 			case 'weapon':
-				tmpArr[wave].weaponId = parseInt(value);
+				tmpArr[wave].weaponId = parseInt(value, 10);
 				if (tmpArr[wave].weaponId !== 9999) {
 					tmpArr[wave].randomId = -1;
 				}
@@ -170,7 +171,7 @@ class ReportForm extends Component {
 				break;
 
 			case 'randomId':
-				tmpArr[wave].randomId = parseInt(value);
+				tmpArr[wave].randomId = parseInt(value, 10);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -179,7 +180,7 @@ class ReportForm extends Component {
 				break;
 
 			case 'type':
-				tmpArr[wave].type = parseInt(value);
+				tmpArr[wave].type = parseInt(value, 10);
 				this.setState(
 					(stat: {
 							waveList: tmpArr
@@ -203,20 +204,26 @@ class ReportForm extends Component {
 					tmpArr[wave].success = false;
 					tmpArr[wave].death = false;
 					break;
-				}
 
+				default:
+					break;
+				}
 				this.setState(
 					(stat: {
 							waveList: tmpArr
 						})
 				);
+				break;
+
+			default:
+				break;
 			}
 		} else {
 			switch (target) {
 			case 'reportResultGold':
 				this.setState({
 					stat: {
-						sumGold: parseInt(value)
+						sumGold: parseInt(value, 10)
 					}
 				});
 				break;
@@ -224,7 +231,7 @@ class ReportForm extends Component {
 			case 'reportResultRed':
 				this.setState({
 					stat: {
-						sumRed: parseInt(value)
+						sumRed: parseInt(value, 10)
 					}
 				});
 				break;
@@ -232,7 +239,7 @@ class ReportForm extends Component {
 			case 'reportResultPresonalGold':
 				this.setState({
 					stat: {
-						gold: parseInt(value)
+						gold: parseInt(value, 10)
 					}
 				});
 				break;
@@ -240,7 +247,7 @@ class ReportForm extends Component {
 			case 'reportResultPresonalRed':
 				this.setState({
 					stat: {
-						red: parseInt(value)
+						red: parseInt(value, 10)
 					}
 				});
 				break;
@@ -248,7 +255,7 @@ class ReportForm extends Component {
 			case 'reportResultPresonalRescue':
 				this.setState({
 					stat: {
-						rescue: parseInt(value)
+						rescue: parseInt(value, 10)
 					}
 				});
 				break;
@@ -256,15 +263,18 @@ class ReportForm extends Component {
 			case 'reportResultPresonalDeath':
 				this.setState({
 					stat: {
-						helped: parseInt(value)
+						helped: parseInt(value, 10)
 					}
 				});
 				break;
 
 			case 'reportShift':
 				this.setState({
-					shift: parseInt(value)
+					shift: parseInt(value, 10)
 				});
+				break;
+
+			default:
 				break;
 			}
 		}
@@ -278,6 +288,7 @@ class ReportForm extends Component {
 			rptSubmit = window.ipcRenderer.sendSync('addStat', this.state.stat);
 			console.dir(rptSubmit);
 			alert('登録出来ました！');
+			this.reload();
 			break;
 
 		default:
@@ -303,8 +314,6 @@ class ReportForm extends Component {
 					weaponList={this.weaponList}
 				/>
 				<Result
-					shiftList={this.shiftList}
-					shift={this.state.shift}
 					handler={this.changeHandler}
 					stat={this.state.stat}
 					clickHandler={this.clickHandler}
@@ -313,6 +322,15 @@ class ReportForm extends Component {
 		);
 	}
 }
+
+ReportForm.propTypes = {
+	shiftList: PropTypes.array.isRequired,
+	dataset: PropTypes.number.isRequired,
+	stats: PropTypes.array.isRequired,
+	info: PropTypes.object.isRequired,
+	weaponList: PropTypes.object.isRequired,
+	reload: PropTypes.func.isRequired
+};
 
 const WaveReport = ({ shiftList, shift, handler, waveList, weaponList }) => {
 	const tmpCount = waveList.filter(oneWave => {
@@ -346,7 +364,15 @@ const WaveReport = ({ shiftList, shift, handler, waveList, weaponList }) => {
 	return <div>{waveComponent}</div>;
 };
 
-const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
+WaveReport.propTypes = {
+	shiftList: PropTypes.array.isRequired,
+	shift: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired,
+	waveList: PropTypes.object.isRequired,
+	weaponList: PropTypes.object.isRequired
+};
+
+const Result = ({ handler, stat, clickHandler }) => {
 	return (
 		<div className="Result">
 			<div className="Stage">
@@ -366,8 +392,9 @@ const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
 						type="number"
 						name="reportResultRed"
 						id="reportResultRed"
-						value={stat.sumRed}
 						onChange={handler}
+						defaultValue="0"
+						min="0"
 					/>
 				</div>
 			</div>
@@ -379,8 +406,9 @@ const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
 							type="number"
 							name="reportResultPersonalGold"
 							id="reportResultPersonalGold"
-							value={stat.gold}
 							onChange={handler}
+							defaultValue="0"
+							min="0"
 						/>
 					</div>
 					<div className="reportResultInput">
@@ -389,8 +417,9 @@ const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
 							type="number"
 							name="reportResultPersonalRed"
 							id="reportResultPersonalRed"
-							value={stat.red}
 							onChange={handler}
+							defaultValue="0"
+							min="0"
 						/>
 					</div>
 				</div>
@@ -401,8 +430,9 @@ const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
 							type="number"
 							name="reportResultPersonalRescue"
 							id="reportResultPersonalRescue"
-							value={stat.rescue}
 							onChange={handler}
+							defaultValue="0"
+							min="0"
 						/>
 					</div>
 					<div className="reportResultInput">
@@ -411,8 +441,9 @@ const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
 							type="number"
 							name="reportResultPersonalDeath"
 							id="reportResultPersonalDeath"
-							value={stat.helped}
 							onChange={handler}
+							defaultValue="0"
+							min="0"
 						/>
 					</div>
 				</div>
@@ -427,6 +458,12 @@ const Result = ({ shiftList, shift, handler, stat, clickHandler }) => {
 			</button>
 		</div>
 	);
+};
+
+Result.propTypes = {
+	handler: PropTypes.func.isRequired,
+	stat: PropTypes.object.isRequired,
+	clickHandler: PropTypes.func.isRequired
 };
 
 export default ReportForm;

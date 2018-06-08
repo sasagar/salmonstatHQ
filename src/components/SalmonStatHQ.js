@@ -21,7 +21,8 @@ const SalmonStatHQ = ({
 	tab,
 	tabSet,
 	onFormSubmit,
-	onChange
+	onChange,
+	reload
 }) => {
 	const view = () => {
 		let weaponTmpList = [];
@@ -51,6 +52,7 @@ const SalmonStatHQ = ({
 					stats={stats}
 					info={info}
 					weaponList={weaponList}
+					reload={reload}
 				/>
 			);
 
@@ -69,7 +71,6 @@ const SalmonStatHQ = ({
 			return (
 				<FileReader
 					className="FileReader"
-					stats={stats}
 					onFormSubmit={onFormSubmit}
 					onChange={onChange}
 				/>
@@ -104,7 +105,11 @@ SalmonStatHQ.propTypes = {
 	onButtonMinus: PropTypes.func.isRequired,
 	onButtonPlus10: PropTypes.func.isRequired,
 	onButtonMinus10: PropTypes.func.isRequired,
-	tab: PropTypes.string.isRequired
+	tab: PropTypes.string.isRequired,
+	tabSet: PropTypes.func.isRequired,
+	onFormSubmit: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	reload: PropTypes.func.isRequired
 };
 
 export default SalmonStatHQ;

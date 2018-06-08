@@ -43,10 +43,6 @@ const OneWave = ({ wave, info, shift, spID, weaponList }) => {
 		tideClass = 'Tide';
 	}
 
-	const weaponSrc = shift.weapons.filter(weapon => {
-		return weapon.id === wave.weaponId;
-	});
-
 	const eventName = info.event.filter(ev => {
 		return ev.id === wave.event;
 	});
@@ -161,7 +157,8 @@ OneWave.propTypes = {
 	wave: PropTypes.object.isRequired,
 	info: PropTypes.object.isRequired,
 	shift: PropTypes.object.isRequired,
-	spID: PropTypes.number.isRequired
+	spID: PropTypes.number.isRequired,
+	weaponList: PropTypes.array.isRequired
 };
 
 export default Waves;

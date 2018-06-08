@@ -92,6 +92,7 @@ class App extends Component {
 			dataset: tmpStats.length - 2
 		});
 		const res = window.ipcRenderer.sendSync('setStat', tmpStats);
+		console.log(res);
 	};
 
 	onChange = e => {
@@ -112,6 +113,24 @@ class App extends Component {
 			dataset: dataset
 		});
 		this.onTabChange('Stat');
+	};
+
+	reload = () => {
+		let stats;
+		let dataset;
+		try {
+			stats = window.ipcRenderer.sendSync('getAllStat');
+			dataset = stats.length - 1;
+		} catch (e) {
+			console.log(e);
+			alert(
+				'登録された報告の取得に失敗しました。\nアプリを再起動してみて反映されているか確認してください。\n反映されない場合には登録に失敗した可能性があります。'
+			);
+		}
+		this.setState({
+			stats: stats,
+			dataset: dataset
+		});
 	};
 
 	render() {
@@ -138,6 +157,7 @@ class App extends Component {
 					tabSet={this.tabSet}
 					onFormSubmit={this.onFormSubmit}
 					onChange={this.onChange}
+					reload={this.reload}
 				/>
 			</div>
 		);

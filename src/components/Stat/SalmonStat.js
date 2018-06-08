@@ -58,7 +58,11 @@ const SalmonStat = ({
 			</div>
 		);
 	} else {
-		return <div className="SalmonStat" />;
+		return (
+			<div className="SalmonStat">
+				まだ記録がないようです。報告書をあげるか、ファイルの取り込みを行って下さい。
+			</div>
+		);
 	}
 };
 
@@ -70,7 +74,8 @@ SalmonStat.propTypes = {
 	onButtonPlus: PropTypes.func.isRequired,
 	onButtonMinus: PropTypes.func.isRequired,
 	onButtonPlus10: PropTypes.func.isRequired,
-	onButtonMinus10: PropTypes.func.isRequired
+	onButtonMinus10: PropTypes.func.isRequired,
+	weaponList: PropTypes.array.isRequired
 };
 
 const Stats = ({ stat, shift, period, info, weaponList }) => {
@@ -180,7 +185,8 @@ Stats.propTypes = {
 	stat: PropTypes.object.isRequired,
 	shift: PropTypes.object.isRequired,
 	period: PropTypes.instanceOf(Date).isRequired,
-	info: PropTypes.object.isRequired
+	info: PropTypes.object.isRequired,
+	weaponList: PropTypes.array.isRequired
 };
 
 export default SalmonStat;

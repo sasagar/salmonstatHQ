@@ -2,18 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/FileReader/FileReader.css';
 
-import {
-	AvailCheck,
-	TimeFormat,
-	eSpt,
-	norma,
-	result,
-	resultGetter
-} from '../../common/common';
-
-const props = this.props;
-
-const FileReader = ({ stats, onFormSubmit, onChange }) => {
+const FileReader = ({ onFormSubmit, onChange }) => {
 	return (
 		<div className="container">
 			<form
@@ -26,6 +15,11 @@ const FileReader = ({ stats, onFormSubmit, onChange }) => {
 			</form>
 		</div>
 	);
+};
+
+FileReader.propTypes = {
+	onFormSubmit: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired
 };
 
 export default FileReader;

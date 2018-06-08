@@ -35,6 +35,16 @@ const Wave = ({
 	);
 };
 
+Wave.propTypes = {
+	shiftList: PropTypes.object.isRequired,
+	shift: PropTypes.object.isRequired,
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired,
+	waveData: PropTypes.object.isRequired,
+	waveList: PropTypes.object.isRequired,
+	weaponList: PropTypes.object.isRequired
+};
+
 const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 	const weaponListComponent = shiftData.weapons.map((weapon, index) => {
 		const id = 'w' + wave + '-' + weapon.id;
@@ -193,6 +203,8 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 				return 10000 <= weapon.id && weapon.id < 10003;
 			});
 			break;
+		default:
+			break;
 		}
 		if (waveList[wave].weaponId === 9999) {
 			random = weapons.map(weapon => {
@@ -248,6 +260,14 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 	);
 };
 
+WeaponSelector.propTypes = {
+	shiftData: PropTypes.object.isRequired,
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired,
+	waveList: PropTypes.object.isRequired,
+	weaponList: PropTypes.object.isRequired
+};
+
 const Tide = ({ handler, wave }) => {
 	const name = 'tide' + wave;
 	return (
@@ -283,6 +303,11 @@ const Tide = ({ handler, wave }) => {
 	);
 };
 
+Tide.propTypes = {
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired
+};
+
 const Event = ({ handler, wave, waveData }) => {
 	const name = 'event' + wave;
 	let dis = [];
@@ -295,6 +320,8 @@ const Event = ({ handler, wave, waveData }) => {
 		break;
 	case 2:
 		dis = ['', '', '', 'disabled', 'disabled', 'disabled', ''];
+		break;
+	default:
 		break;
 	}
 	return (
@@ -369,6 +396,12 @@ const Event = ({ handler, wave, waveData }) => {
 	);
 };
 
+Event.propTypes = {
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired,
+	waveData: PropTypes.object.isRequired
+};
+
 const PlayStats = ({ handler, wave, waveList }) => {
 	return (
 		<div className="PlayStats">
@@ -377,6 +410,12 @@ const PlayStats = ({ handler, wave, waveList }) => {
 			<Special handler={handler} wave={wave} waveList={waveList} />
 		</div>
 	);
+};
+
+PlayStats.propTypes = {
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired,
+	waveList: PropTypes.object.isRequired
 };
 
 const Special = ({ handler, wave, waveList }) => {
@@ -394,6 +433,8 @@ const Special = ({ handler, wave, waveList }) => {
 		case 2:
 			dis = ['', 'disabled', 'disabled'];
 			break;
+		default:
+			break;
 		}
 		break;
 	case 2:
@@ -406,6 +447,8 @@ const Special = ({ handler, wave, waveList }) => {
 			break;
 		case 2:
 			dis = ['', 'disabled', 'disabled'];
+			break;
+		default:
 			break;
 		}
 		break;
@@ -449,6 +492,12 @@ const Special = ({ handler, wave, waveList }) => {
 	);
 };
 
+Special.propTypes = {
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired,
+	waveList: PropTypes.object.isRequired
+};
+
 const Norma = ({ handler, wave }) => {
 	const name = 'norma' + wave;
 	return (
@@ -464,6 +513,11 @@ const Norma = ({ handler, wave }) => {
 	);
 };
 
+Norma.propTypes = {
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired
+};
+
 const GoldCount = ({ handler, wave }) => {
 	const name = 'gold' + wave;
 	return (
@@ -477,6 +531,11 @@ const GoldCount = ({ handler, wave }) => {
 			/>
 		</div>
 	);
+};
+
+GoldCount.propTypes = {
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired
 };
 
 const WaveResultSelector = ({ handler, wave, waveData }) => {
@@ -518,6 +577,12 @@ const WaveResultSelector = ({ handler, wave, waveData }) => {
 			<label htmlFor={'res2' + wave}>時間切れ</label>
 		</div>
 	);
+};
+
+WaveResultSelector.propTypes = {
+	wave: PropTypes.object.isRequired,
+	handler: PropTypes.func.isRequired,
+	waveData: PropTypes.object.isRequired
 };
 
 export default Wave;
