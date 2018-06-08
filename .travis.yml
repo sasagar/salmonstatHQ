@@ -2,9 +2,6 @@ language: objective-c
 branches:
   only:
   - master
-cache:
-  directories:
-  - node_modules
 sudo: required
 env:
 - NODE_VERSION="10.0.0"
