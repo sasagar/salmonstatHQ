@@ -15,14 +15,14 @@
 		"appId": "com.kent-and-co.salmonstathq",
 		"mac": {
 			"target": "zip",
-			"icon": "icondata/icon.icns"
+			"icon": "icondata/salmonhq.icns"
 		},
 		"win": {
 			"target": {
 				"target": "nsis",
 				"arch": ["x64", "ia32"]
 			},
-			"icon": "icondata/icon.ico"
+			"icon": "icondata/salmonhq.ico"
 		},
 		"publish": [
 			{
