@@ -1,10 +1,12 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, Menu, BrowserWindow, ipcMain } = require('electron');
 // Module to control application life.
 // Module to create native browser window.
 
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
+
+const em = require('./electron-menu');
 
 const userDataDir = app.getPath('userData');
 
@@ -52,7 +54,24 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', () => {
+	createWindow();
+	// メニューを作る
+	const template = em.template;
+
+	if (process.platform === 'darwin') {
+		template.unshift(em.darwinTemplate.main);
+
+		// Edit menu
+		template[1].submenu.push(em.darwinTemplate.sub1);
+
+		// Window menu
+		template[3].submenu = em.darwinTemplate.sub2;
+	}
+
+	const menu = Menu.buildFromTemplate(template);
+	Menu.setApplicationMenu(menu);
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
