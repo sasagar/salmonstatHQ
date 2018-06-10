@@ -10,6 +10,7 @@
 /release
 /build/*
 !/build/electron.js
+!/build/preload.js
 
 # misc
 .DS_Store

@@ -26,7 +26,7 @@ function createWindow() {
 		center: true,
 		webPreferences: {
 			nodeIntegration: false,
-			preload: __dirname + '/preload.js'
+			preload: __dirname + '/../src/preload.js'
 		}
 	});
 
@@ -102,7 +102,7 @@ ipcMain.on('getAllStat', event => {
 
 				fs.writeFile(
 					path.join(process.env.REACT_APPDIR, '/SalmonRec.json'),
-					'',
+					'[]',
 					err => {
 						console.log(err);
 						event.returnValue = false;
@@ -148,7 +148,10 @@ ipcMain.on('addStat', (event, stat) => {
 			const time = new Date(Date.now());
 			const isoTime = time.toISOString();
 			stat.time = isoTime;
-			const id = file[file.length - 1].id + 1;
+			let id = 1;
+			if (file.length !== 0) {
+				id = file[file.length - 1].id + 1;
+			}
 			stat.id = id;
 			delete stat.waveList[0].type;
 			delete stat.waveList[1].type;
