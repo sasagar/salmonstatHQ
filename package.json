@@ -1,6 +1,6 @@
 {
 	"name": "salmonStatHQ",
-	"version": "0.1.1-beta.4",
+	"version": "0.1.1-beta.5",
 	"description": "Splatoon2のSalmonRun記録用アプリ",
 	"private": true,
 	"dependencies": {
@@ -82,7 +82,8 @@
 		"eslint-plugin-jsx-a11y": "^6.0.3",
 		"eslint-plugin-react": "^7.9.1",
 		"foreman": "^3.0.0",
-		"webpack-cli": "^2.1.5"
+		"webpack-cli": "^2.1.5",
+		"webpack": "^4.0.0"
 	},
 	"main": "src/electron-starter.js",
 	"homepage": "./",
