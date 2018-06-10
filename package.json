@@ -8,8 +8,7 @@
 		"prop-types": "^15.6.1",
 		"react": "^16.4.0",
 		"react-dom": "^16.4.0",
-		"react-scripts": "1.1.4",
-		"webpack": "^3.12.0"
+		"react-scripts": "1.1.4"
 	},
 	"build": {
 		"appId": "com.kent-and-co.salmonstathq",
@@ -36,7 +35,7 @@
 			}
 		],
 		"directories": {
-			"output": "../dist"
+			"output": "./dist"
 		},
 		"electronVersion": "2.0.2",
 		"extends": null

@@ -7,7 +7,6 @@
 /coverage
 
 # production
-/build
 /release
 
 # misc
@@ -26,3 +25,4 @@ SalmonRec*.json
 
 *.ai
 /*.iconset
+/*dist
