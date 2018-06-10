@@ -1,20 +1,16 @@
 {
-	"name": "salmonStatHQ",
-	"version": "0.1.1-beta.6",
+	"name": "SalmonStatHQ",
+	"version": "0.1.1-beta.7",
 	"description": "Splatoon2のSalmonRun記録用アプリ",
 	"private": true,
 	"dependencies": {
-		"eslint-config-eslint": "^4.0.0",
-		"prop-types": "^15.6.1",
-		"react": "^16.4.0",
-		"react-dom": "^16.4.0",
-		"react-scripts": "1.1.4"
+		"electron-is-dev": "^0.3.0"
 	},
 	"build": {
 		"appId": "com.kent-and-co.salmonstathq",
 		"mac": {
 			"target": "zip",
-			"icon": "icondata/salmonhq.icns"
+			"icon": "./icondata/salmonhq.icns"
 		},
 		"win": {
 			"target": {
@@ -24,7 +20,7 @@
 					"ia32"
 				]
 			},
-			"icon": "icondata/salmonhq.ico"
+			"icon": "./icondata/salmonhq.ico"
 		},
 		"publish": [
 			{
@@ -34,37 +30,27 @@
 				"publishAutoUpdate": "true"
 			}
 		],
-		"directories": {
-			"output": "./dist"
-		},
 		"electronVersion": "2.0.2",
-		"extends": null
+		"files": [
+			"!release",
+			"!original",
+			"!dist"
+		],
+		"directories": {
+			"buildResources": "icondata"
+		}
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "nf start -p 3000",
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject",
-		"electron": "node_modules/.bin/electron .",
-		"dev": "nf start -p 3000",
-		"package:mac": "electron-packager . salmonStatHQ --platform=darwin --arc=x64 --out=release --icon=./icondata/salmonhq.icns",
-		"package:win": "electron-packager . salmonStatHQ --platform=win32 --arc=x64,x32 --out=release --icon=./icondata/salmonhq.ico",
-		"package": "npm run package:mac && npm run package:win",
-		"release": "build -mw",
-		"clean": "rm -rf ../dist",
-		"clean:osx": "rm -rf ../dist/darwin",
-		"clean:win": "rm -rf ../dist/darwin/win-unpacked",
-		"pack": "npm run pack:osx && npm run pack:win",
-		"pack:osx": "npm run clean:osx && electron-packager . TAcalExporter --out=../dist/darwin --platform=darwin --arch=x64 --version=2.0.2 --icon=build/icon.icns",
-		"pack:win": "npm run clean:win && electron-packager . TAcalExporter --out=../dist/darwin --platform=win32 --arch=ia32 --version=2.0.2 --icon=build/icon.ico",
-		"ebuild": "npm run build:osx && npm run build:win",
-		"ebuild:osx": "npm run clean:osx && electron-builder '../dist/darwin/TAcalExporter-darwin-x64/TAcalExporter.app' --platform=mac --config=builder.json",
-		"ebuild:win": "npm run clean:win && electron-builder '../dist/darwin/TAcalExporter-win32-x64' --platform=win --config=builder.json",
-		"archive": "npm run archive:osx && npm run archive:win",
-		"archive:osx": "npm run build:osx && zip -j '../dist/darwin/TAcalExporter-osx.zip' '../dist/darwin/TAcalExporter.dmg'",
-		"archive:win": "npm run build:win && zip -j '../dist/darwin/TAcalExporter-win.zip' '../dist/darwin/TAcalExporter.exe'",
-		"make:mac": "electron-packager . TAcalExporter --platform=darwin --arch=x64 --electron-version=2.0.2 --icon=build/icon.icns --overwrite",
-		"make:win": "electron-packager . TAcalExporter --platform=win32 --arch=x64 --electron-version=2.0.2 --icon=build/icon.ico --overwrite"
+		"electron": "electron .",
+		"electron-start": "node src/electron-wait-react",
+		"react-start": "react-scripts start",
+		"pack": "build --dir",
+		"dist": "npm run build && build",
+		"postinstall": "install-app-deps"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
@@ -77,14 +63,19 @@
 		"electron-packager": "^12.1.0",
 		"eslint": "^4.19.1",
 		"eslint-config-airbnb": "^16.1.0",
+		"eslint-config-eslint": "^4.0.0",
 		"eslint-plugin-import": "^2.12.0",
 		"eslint-plugin-jsx-a11y": "^6.0.3",
 		"eslint-plugin-react": "^7.9.1",
 		"foreman": "^3.0.0",
-		"webpack-cli": "^2.1.5",
-		"webpack": "^3.11.0"
+		"prop-types": "^15.6.1",
+		"react": "^16.4.0",
+		"react-dom": "^16.4.0",
+		"react-scripts": "1.1.4",
+		"webpack": "^3.11.0",
+		"webpack-cli": "^2.1.5"
 	},
-	"main": "src/electron-starter.js",
+	"main": "public/electron.js",
 	"homepage": "./",
 	"repository": "github:sasagar/salmonstatHQ",
 	"author": "SASAGAWA, Kiyoshi",

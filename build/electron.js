@@ -6,7 +6,7 @@ const path = require('path');
 const url = require('url');
 const fs = require('fs');
 
-const em = require('./electron-menu');
+const em = require('../src/electron-menu');
 
 const userDataDir = app.getPath('userData');
 

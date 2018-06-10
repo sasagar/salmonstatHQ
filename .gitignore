@@ -7,8 +7,9 @@
 /coverage
 
 # production
-/build
 /release
+/build/*
+!/build/electron.js
 
 # misc
 .DS_Store
@@ -26,4 +27,4 @@ SalmonRec*.json
 
 *.ai
 /*.iconset
-/*dist
+/dist
