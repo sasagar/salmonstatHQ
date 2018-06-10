@@ -1,6 +1,6 @@
 {
 	"name": "SalmonStatHQ",
-	"version": "0.1.1-beta.8",
+	"version": "0.1.1-beta.9",
 	"description": "Splatoon2のSalmonRun記録用アプリ",
 	"private": true,
 	"dependencies": {
