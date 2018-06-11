@@ -165,7 +165,8 @@ ipcMain.on('addStat', (event, stat) => {
 			return waves;
 		})
 		.then(waves => {
-			while (waves < 2) {
+			console.log(waves);
+			while (waves < 2 && waves !== -1) {
 				delete stat.waveList.pop();
 				waves++;
 			}
