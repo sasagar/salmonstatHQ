@@ -20,7 +20,7 @@ const ShiftSelector = ({ shiftList, handler }) => {
 	return (
 		<div className="shiftSelector">
 			<select
-				name="reportShift0"
+				name="reportShift"
 				onChange={e => handler(e)}
 				defaultValue={shifts.length - 2}
 			>

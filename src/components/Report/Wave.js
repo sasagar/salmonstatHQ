@@ -214,9 +214,9 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 						<div key={weapon.id}>
 							<input
 								type="radio"
-								name="randomId"
+								name={'randomId' + wave}
 								onChange={e => handler(e, wave)}
-								value="weapon.id"
+								value={weapon.id}
 								id={'random' + weapon.id + wave}
 							/>
 							<label htmlFor={'random' + weapon.id + wave}>
@@ -231,9 +231,9 @@ const WeaponSelector = ({ shiftData, handler, wave, waveList, weaponList }) => {
 						<div key={weapon.id}>
 							<input
 								type="radio"
-								name="randomId"
+								name={'randomId' + wave}
 								onChange={e => handler(e, wave)}
-								value="weapon.id"
+								value={weapon.id}
 								id={'random' + weapon.id + wave}
 							/>
 							<label htmlFor={'random' + weapon.id + wave}>

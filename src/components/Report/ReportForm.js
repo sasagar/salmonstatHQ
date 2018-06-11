@@ -38,7 +38,7 @@ class ReportForm extends Component {
 						success: false,
 						tide: 1,
 						event: 0,
-						weaponId: 0,
+						weaponId: -1,
 						type: 0
 					},
 					{
@@ -51,7 +51,7 @@ class ReportForm extends Component {
 						success: false,
 						tide: 1,
 						event: 0,
-						weaponId: 0,
+						weaponId: -1,
 						type: 0
 					},
 					{
@@ -64,7 +64,7 @@ class ReportForm extends Component {
 						success: false,
 						tide: 1,
 						event: 0,
-						weaponId: 0,
+						weaponId: -1,
 						type: 0
 					}
 				],
@@ -219,59 +219,41 @@ class ReportForm extends Component {
 				break;
 			}
 		} else {
-			switch (target) {
+			const val = parseInt(value, 10);
+			const tmpStat = this.state.stat;
+			switch (e.target.name) {
 			case 'reportResultGold':
-				this.setState({
-					stat: {
-						sumGold: parseInt(value, 10)
-					}
-				});
+				tmpStat.sumGold = val;
+				this.setState((stat: tmpStat));
 				break;
 
 			case 'reportResultRed':
-				this.setState({
-					stat: {
-						sumRed: parseInt(value, 10)
-					}
-				});
+				tmpStat.sumRed = val;
+				this.setState((stat: tmpStat));
 				break;
 
 			case 'reportResultPresonalGold':
-				this.setState({
-					stat: {
-						gold: parseInt(value, 10)
-					}
-				});
+				tmpStat.gold = val;
+				this.setState((stat: tmpStat));
 				break;
 
 			case 'reportResultPresonalRed':
-				this.setState({
-					stat: {
-						red: parseInt(value, 10)
-					}
-				});
+				tmpStat.red = val;
+				this.setState((stat: tmpStat));
 				break;
 
 			case 'reportResultPresonalRescue':
-				this.setState({
-					stat: {
-						rescue: parseInt(value, 10)
-					}
-				});
+				tmpStat.rescue = val;
+				this.setState((stat: tmpStat));
 				break;
 
 			case 'reportResultPresonalDeath':
-				this.setState({
-					stat: {
-						helped: parseInt(value, 10)
-					}
-				});
+				tmpStat.rescue = val;
+				this.setState((stat: tmpStat));
 				break;
 
 			case 'reportShift':
-				this.setState({
-					shift: parseInt(value, 10)
-				});
+				this.setState({ shift: val });
 				break;
 
 			default:
@@ -297,6 +279,7 @@ class ReportForm extends Component {
 	};
 
 	render() {
+		console.log(this.state.stat);
 		return (
 			<div className="ReportForm">
 				<div className="Heading">
@@ -393,7 +376,7 @@ const Result = ({ handler, stat, clickHandler }) => {
 						name="reportResultRed"
 						id="reportResultRed"
 						onChange={handler}
-						defaultValue="0"
+						defaultValue={stat.sumRed}
 						min="0"
 					/>
 				</div>

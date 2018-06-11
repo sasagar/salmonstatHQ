@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import '../../css/Stat/Waves.css';
 import { AvailCheck } from '../../common/common';
 
-const Waves = ({ waveList, info, shift, spID, weaponList }) => {
+const Waves = ({ waveList, info, spID, weaponList }) => {
 	const waveAll = waveList.map((wave, id) => {
 		return (
 			<OneWave
 				wave={wave}
 				info={info}
-				shift={shift}
 				spID={spID}
 				key={id}
 				weaponList={weaponList}
@@ -23,11 +22,11 @@ const Waves = ({ waveList, info, shift, spID, weaponList }) => {
 Waves.propTypes = {
 	waveList: PropTypes.array.isRequired,
 	info: PropTypes.object.isRequired,
-	shift: PropTypes.object.isRequired,
+	weaponList: PropTypes.object.isRequired,
 	spID: PropTypes.number.isRequired
 };
 
-const OneWave = ({ wave, info, shift, spID, weaponList }) => {
+const OneWave = ({ wave, info, spID, weaponList }) => {
 	let tideClass;
 	switch (wave.tide) {
 	case 0:
@@ -76,25 +75,30 @@ const OneWave = ({ wave, info, shift, spID, weaponList }) => {
 				</div>
 			);
 		} else {
-			const weaponTmpList = weaponList.filter(weaponTmp => {
-				return weaponTmp.id === wave.randomId;
-			});
-
-			if (weaponTmpList[0].id < 10000) {
-				return (
-					<div className="weapon">
-						<img src={weaponTmpList[0].image} alt={weaponTmpList[0].name} />
-						<div className="random">?</div>
-					</div>
-				);
+			if (wave.randomId === -1) {
+				return <div className="weapon" />;
 			} else {
-				const src = require(`../../${weaponTmpList[0].image}`);
-				return (
-					<div className="weapon">
-						<img src={src} alt={weaponTmpList[0].name} />
-						<div className="random">?</div>
-					</div>
-				);
+				const weaponTmpList = weaponList.filter(weaponTmp => {
+					return weaponTmp.id === wave.randomId;
+				});
+				console.log(weaponTmpList);
+
+				if (weaponTmpList[0].id < 10000) {
+					return (
+						<div className="weapon">
+							<img src={weaponTmpList[0].image} alt={weaponTmpList[0].name} />
+							<div className="random">?</div>
+						</div>
+					);
+				} else {
+					const src = require(`../../${weaponTmpList[0].image}`);
+					return (
+						<div className="weapon">
+							<img src={src} alt={weaponTmpList[0].name} />
+							<div className="random">?</div>
+						</div>
+					);
+				}
 			}
 		}
 	};
@@ -156,7 +160,6 @@ const OneWave = ({ wave, info, shift, spID, weaponList }) => {
 OneWave.propTypes = {
 	wave: PropTypes.object.isRequired,
 	info: PropTypes.object.isRequired,
-	shift: PropTypes.object.isRequired,
 	spID: PropTypes.number.isRequired,
 	weaponList: PropTypes.array.isRequired
 };

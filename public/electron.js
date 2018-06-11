@@ -147,7 +147,7 @@ ipcMain.on('addStat', (event, stat) => {
 		.then(() => {
 			const time = new Date(Date.now());
 			const isoTime = time.toISOString();
-			stat.time = isoTime;
+			stat.time = isoTime.slice(0, -5) + 'Z';
 			let id = 1;
 			if (file.length !== 0) {
 				id = file[file.length - 1].id + 1;
